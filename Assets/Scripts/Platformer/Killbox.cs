@@ -12,6 +12,10 @@ public class Killbox : MonoBehaviour
         {
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.playerMood -= 1;
+
+            GameManager.Instance.SpawnChatPopup("<#8F3CE0>RandomChatter:</color> Damn Streamer get good! Play a different game!!");
+            GameManager.Instance.SpawnChatPopup("<#8F3CE0>SupportiveChatter:</color> It's ok you were really close!");
+            GameManager.Instance.SpawnChatPopup("<#8F3CE0>InsightJohn:</color> Lol");
         }
     }
 }

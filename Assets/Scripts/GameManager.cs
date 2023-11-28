@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public Image VTuberImage;
+    public Transform chatpopupParent;
+    public GameObject chatPopupPrefab;
+    public int position = 50;
+    private List<GameObject> chatPopups = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +60,9 @@ public class GameManager : MonoBehaviour
 
         //run this statement
         VTuberEmotionSwitch(playerMood);
+
+        //rebuild vertical layout to avoid spawning messages incorrectly
+        LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
     }
 
     public void VTuberEmotionSwitch(int mood)
@@ -81,5 +88,18 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SpawnChatPopup(string message)
+    {
+        //create the popup 
+        GameObject popup = Instantiate(chatPopupPrefab, chatpopupParent);
+        popup.GetComponent<ChatPopup>().message.text = message;
+        
+        chatPopups.Add(popup);
+        //foreach (var _popup in chatPopups)
+        //{
+        //    _popup.GetComponent<RectTransform>().anchoredPosition += Vector2.up * position;
+        //}
     }
 }
