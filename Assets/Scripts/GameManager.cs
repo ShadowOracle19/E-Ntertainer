@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         //create the popup 
         GameObject popup = Instantiate(chatPopupPrefab, chatpopupParent);
         popup.GetComponent<ChatPopup>().message.text = message;
+        popup.GetComponent<RectTransform>().SetAsFirstSibling();
         
         chatPopups.Add(popup);
         //foreach (var _popup in chatPopups)
