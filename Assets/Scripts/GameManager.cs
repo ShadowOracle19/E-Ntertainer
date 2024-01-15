@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     //only variables relating to the platformer should go here
     [Header("Platformer")]
     public Transform spawnPoint;
+    public GameObject player;
 
     [Header("UI")]
     public Image VTuberImage;
@@ -102,5 +103,11 @@ public class GameManager : MonoBehaviour
         //{
         //    _popup.GetComponent<RectTransform>().anchoredPosition += Vector2.up * position;
         //}
+    }
+
+    public void Death()
+    {
+        playerMood -= 1;
+        player.transform.position = spawnPoint.position;
     }
 }
