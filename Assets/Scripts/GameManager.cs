@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     [Header("Platformer")]
     public Transform spawnPoint;
     public GameObject player;
+    [Range(0.1f, 1)]
+    public float CameraMoveSpeed = 0.5f;
 
     [Header("UI")]
     public Image VTuberImage;
