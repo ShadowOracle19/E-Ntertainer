@@ -26,11 +26,14 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    //Temp variable only for the POC demo
-    //This should never pass -1, 0, 1
-    [Range(-1, 1)]
-    public int playerMood;
-
+    
+    [Header("VTuber Attributes")]
+    [Range(-50, 50)]//starting approval should be zero
+    public int audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
+    public int audience;//should not go lower than zero
+    public int VTuberMood;//-50 to -30 low, -29 to 29 average, 30 to 50 high
+    public float timer;
+    //These sprites will eventually change
     public Sprite VTuberDefault;
     public Sprite VTuberPositive;
     public Sprite VTuberNegative;
@@ -58,39 +61,33 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         //this keeps the player mood variable clamped to -1 and 1 so it will never go past that point
-        Mathf.Clamp(playerMood, -1, 1);
+        Mathf.Clamp(audience, 0, Mathf.Infinity);
+        Mathf.Clamp(audienceApproval, -50, 50);
 
         //run this statement
-        VTuberEmotionSwitch(playerMood);
+        VTuberEmotionSwitch(audienceApproval);
 
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
     }
 
-    public void VTuberEmotionSwitch(int mood)
+    public void VTuberEmotionSwitch(int approval)
     {
-        //Switch statement to manage the three moods this will need to be improved for the final product
-        switch (mood)
+        if(approval >= 30)//High approval
         {
-            //negative
-            case -1:
-                VTuberImage.sprite = VTuberNegative;
-                break;
-
-            //default
-            case 0:
-                VTuberImage.sprite = VTuberDefault;
-                break;
-
-            //poisitive
-            case 1:
-                VTuberImage.sprite = VTuberPositive;
-                break;
-
-            default:
-                break;
+            VTuberImage.sprite = VTuberPositive;
         }
+        else if(approval >= -29 && approval <= 29)//Average approval
+        {
+            VTuberImage.sprite = VTuberDefault;
+        }
+        else if(approval <= -30 && approval >= -50)//low approval
+        {
+            VTuberImage.sprite = VTuberNegative;
+        }
+        
     }
 
     public void SpawnChatPopup(string message)
@@ -109,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void Death()
     {
-        playerMood -= 1;
+        audienceApproval -= 5;
         player.transform.position = spawnPoint.position;
     }
 }

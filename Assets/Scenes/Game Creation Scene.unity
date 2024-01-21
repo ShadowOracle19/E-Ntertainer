@@ -463,7 +463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451b7a63e08960540b02109e44841ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMood: 0
+  audienceApproval: 0
+  audience: 0
+  VTuberMood: 0
   VTuberDefault: {fileID: 21300000, guid: 9d7351dd4d7d2b740b9a9d6767a44581, type: 3}
   VTuberPositive: {fileID: 21300000, guid: a0655a5536e26444a9312722dacb53cb, type: 3}
   VTuberNegative: {fileID: 21300000, guid: 2cc37dab67c150c4ba959532b4a56ce6, type: 3}
@@ -602,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 6563177}
+  FirstEntered: 0
 --- !u!61 &353639883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1177,6 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2113157517}
+  FirstEntered: 1
 --- !u!61 &544573608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2000,6 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 193404547}
+  FirstEntered: 1
 --- !u!61 &1034277860
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2093,6 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 663603410}
+  FirstEntered: 1
 --- !u!61 &1041022502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2618,6 +2624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 994149801}
+  FirstEntered: 1
 --- !u!61 &1367782828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25535,6 +25542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 579190885}
+  FirstEntered: 1
 --- !u!61 &1498860068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25697,6 +25705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 807304277}
+  FirstEntered: 1
 --- !u!61 &1565189447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27200,6 +27209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1330784797}
+  FirstEntered: 1
 --- !u!61 &1836203359
 BoxCollider2D:
   m_ObjectHideFlags: 0
