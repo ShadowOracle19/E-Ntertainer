@@ -5,6 +5,12 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public Transform spawnPoint;
+
+    private void Start()
+    {
+        GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
