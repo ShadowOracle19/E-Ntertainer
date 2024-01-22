@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +30,9 @@ public class GameManager : MonoBehaviour
     
     [Header("VTuber Attributes")]
     [Range(-50, 50)]//starting approval should be zero
-    public int audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
-    public int audience;//should not go lower than zero
-    public int VTuberMood;//-50 to -30 low, -29 to 29 average, 30 to 50 high
+    public float audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
+    public float audience;//0-100
+    public float VTuberMood;
     public float timer;
     //These sprites will eventually change
     public Sprite VTuberDefault;
@@ -44,6 +45,13 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     [Range(0.1f, 1)]
     public float CameraMoveSpeed = 0.5f;
+
+    [Header("Chat")]
+    public ChatUsername usernames;
+    public ChatMessage positiveMessages;
+    public ChatMessage neutralMessages;
+    public ChatMessage negativeMessages;
+    private float audienceStatTimer = 5;
 
     [Header("UI")]
     public Image VTuberImage;
@@ -62,18 +70,59 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //this keeps the player mood variable clamped to -1 and 1 so it will never go past that point
-        Mathf.Clamp(audience, 0, Mathf.Infinity);
-        Mathf.Clamp(audienceApproval, -50, 50);
 
         //run this statement
         VTuberEmotionSwitch(audienceApproval);
 
+        //Calculate Audience stat
+        Audience();
+
+        //Calculate Mood Stat
+        Mood();
+
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
+        audienceApproval = Mathf.Clamp(audienceApproval, -50, 50);
+        audience = Mathf.Clamp(audience, 0, 100);
     }
 
-    public void VTuberEmotionSwitch(int approval)
+    private void Audience()
+    {
+        if (audienceStatTimer > 0)//Countdown to 5 seconds
+        {
+            audienceStatTimer -= Time.deltaTime;
+        }
+        else
+        {
+            audienceStatTimer = 5;
+            if (audienceApproval >= 30)//High approval
+            {
+                Debug.Log("High");
+                audience += 1;
+            }
+            else if (audienceApproval <= 29 && audienceApproval >= -29)//Average approval
+            {
+                Debug.Log("Average");
+                int rand = Random.Range(1, 5);
+                if(rand == 1)
+                {
+                    audience -= 1;
+                }
+            }
+            else if (audienceApproval <= -30)//low approval
+            {
+                Debug.Log("Low");
+                audience += 1;
+            }
+        }
+    }
+
+    private void Mood()
+    {
+        VTuberMood += ((audienceApproval * audience) / 1000) * Time.deltaTime;
+    }
+
+    public void VTuberEmotionSwitch(float approval)
     {
         if(approval >= 30)//High approval
         {
@@ -83,18 +132,39 @@ public class GameManager : MonoBehaviour
         {
             VTuberImage.sprite = VTuberDefault;
         }
-        else if(approval <= -30 && approval >= -50)//low approval
+        else if(approval <= -30)//low approval
         {
             VTuberImage.sprite = VTuberNegative;
         }
         
     }
 
-    public void SpawnChatPopup(string message)
+    public void SpawnChatPopup()
     {
         //create the popup 
         GameObject popup = Instantiate(chatPopupPrefab, chatpopupParent);
-        popup.GetComponent<ChatPopup>().message.text = message;
+
+        string _username = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
+
+        string _message = " ";
+
+        if (audienceApproval >= 30)//High approval
+        {
+            Debug.Log("Positive Messages");
+            _message = positiveMessages.messages[Random.Range(0, positiveMessages.messages.Count)];
+        }
+        else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
+        {
+            Debug.Log("Neutral Messages");
+            _message = neutralMessages.messages[Random.Range(0, neutralMessages.messages.Count)];
+        }
+        else if (audienceApproval <= -30)//low approval
+        {
+            Debug.Log("Negative Messages");
+            _message = negativeMessages.messages[Random.Range(0, negativeMessages.messages.Count)];
+        }
+
+        popup.GetComponent<ChatPopup>().message.text = "<#8F3CE0>"+_username + ":</color> " + _message;
         popup.GetComponent<RectTransform>().SetAsFirstSibling();
         
         chatPopups.Add(popup);

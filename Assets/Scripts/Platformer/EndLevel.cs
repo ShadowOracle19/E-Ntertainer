@@ -13,9 +13,9 @@ public class EndLevel : MonoBehaviour
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;
 
-            GameManager.Instance.SpawnChatPopup("<#8F3CE0>RandomChatter:</color> Yay great job!");
-            GameManager.Instance.SpawnChatPopup("<#8F3CE0>SupportiveChatter:</color> Wow you did it so quickly");
-            GameManager.Instance.SpawnChatPopup("<#8F3CE0>InsightJohn:</color> I can see you");
+            GameManager.Instance.SpawnChatPopup();
+            GameManager.Instance.SpawnChatPopup();
+            GameManager.Instance.SpawnChatPopup();
         }
     }
 }

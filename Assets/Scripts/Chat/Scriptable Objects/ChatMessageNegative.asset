@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206306e67a9eb504bad270f14f6d9bf3, type: 3}
   m_Name: ChatMessageNegative
   m_EditorClassIdentifier: 
+  messages:
+  - just quit already
+  - shes so fucking bad lmfao
+  - so fucking cringe LOL
+  - Guys be nice
+  - They just let anyone stream these days, huh.

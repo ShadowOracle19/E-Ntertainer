@@ -444,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80160519}
   - component: {fileID: 80160518}
+  - component: {fileID: 80160520}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -465,13 +466,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audienceApproval: 0
   audience: 0
-  VTuberMood: 0
+  VTuberMood: 50
+  timer: 0
   VTuberDefault: {fileID: 21300000, guid: 9d7351dd4d7d2b740b9a9d6767a44581, type: 3}
   VTuberPositive: {fileID: 21300000, guid: a0655a5536e26444a9312722dacb53cb, type: 3}
   VTuberNegative: {fileID: 21300000, guid: 2cc37dab67c150c4ba959532b4a56ce6, type: 3}
   spawnPoint: {fileID: 6563177}
   player: {fileID: 739674334}
   CameraMoveSpeed: 0.5
+  usernames: {fileID: 11400000, guid: 6f83fd55a229b9549858cd2dd6b77d95, type: 2}
+  positiveMessages: {fileID: 11400000, guid: a0b3006bcc8787d42afbc5af60414aaf, type: 2}
+  neutralMessages: {fileID: 11400000, guid: 3d4dbb78c9186bc48bf2c21ebc597cf7, type: 2}
+  negativeMessages: {fileID: 11400000, guid: bb73331b05af65749838b747d48b58c4, type: 2}
   VTuberImage: {fileID: 910152281}
   chatpopupParent: {fileID: 71327089}
   chatPopupPrefab: {fileID: 9087147247665118764, guid: aa19eade6ca845e41845148b4dc62fd7, type: 3}
@@ -491,6 +497,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &80160520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80160517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf75dcbcff483174a8bd7fe6bbd589a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86708281
 GameObject:
   m_ObjectHideFlags: 0
@@ -26667,6 +26685,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -7, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -25, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -26959,13 +26987,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 88
+  - m_RefCount: 89
     m_Data: {fileID: 11400000, guid: 628c668df895b2a4399cfa5b8120c2a2, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 88
+  - m_RefCount: 89
     m_Data: {fileID: 7482667652216324306, guid: 506c7e56acb2fe94d9ca1fffce154020, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 88
+  - m_RefCount: 89
     m_Data:
       e00: 1
       e01: 0
@@ -26984,7 +27012,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 88
+  - m_RefCount: 89
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
