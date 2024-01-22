@@ -64,11 +64,12 @@ public class GameManager : MonoBehaviour
     public int position = 50;
     private List<GameObject> chatPopups = new List<GameObject>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Audio")]
+    public AudioSource collectibleAudioSource;
+    public AudioSource dashAudioSource;
+    public AudioSource deathAudioSource;
+    public AudioSource jumpAudioSource;
+
 
     // Update is called once per frame
     void Update()
@@ -242,6 +243,7 @@ public class GameManager : MonoBehaviour
 
     public void Death()
     {
+        deathAudioSource.Play();
         audienceApproval -= 5;
         player.transform.position = spawnPoint.position;
     }
