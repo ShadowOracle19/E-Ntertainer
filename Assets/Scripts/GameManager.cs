@@ -48,9 +48,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Chat")]
     public ChatUsername usernames;
-    public ChatMessage positiveMessages;
-    public ChatMessage neutralMessages;
-    public ChatMessage negativeMessages;
+    public ChatMessage highApprovalMessages;
+    public ChatMessage generalMessages;
+    public ChatMessage lowApprovalMessages;
+    public ChatMessage lowMoodMessages;
+    public ChatMessage highMoodMessages;
+    public ChatMessage highAudienceMessages;
+    public ChatMessage lowAudienceMessages;
     private float audienceStatTimer = 5;
 
     [Header("UI")]
@@ -146,23 +150,26 @@ public class GameManager : MonoBehaviour
 
         string _username = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
 
-        string _message = " ";
+        int rand = Random.Range(1, 4);
 
-        if (audienceApproval >= 30)//High approval
+        string chosenMessageType = "";
+        switch (rand)
         {
-            Debug.Log("Positive Messages");
-            _message = positiveMessages.messages[Random.Range(0, positiveMessages.messages.Count)];
+            case 1:
+                chosenMessageType = SpawnApprovalChatpopup();
+                break;
+            case 2:
+                chosenMessageType = SpawnMoodChatpopup();
+                break;
+            case 3:
+                chosenMessageType = SpawnAudienceChatpopup();
+                break;
+            default:
+                break;
         }
-        else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
-        {
-            Debug.Log("Neutral Messages");
-            _message = neutralMessages.messages[Random.Range(0, neutralMessages.messages.Count)];
-        }
-        else if (audienceApproval <= -30)//low approval
-        {
-            Debug.Log("Negative Messages");
-            _message = negativeMessages.messages[Random.Range(0, negativeMessages.messages.Count)];
-        }
+
+
+        string _message = chosenMessageType;
 
         popup.GetComponent<ChatPopup>().message.text = "<#8F3CE0>"+_username + ":</color> " + _message;
         popup.GetComponent<RectTransform>().SetAsFirstSibling();
@@ -172,6 +179,65 @@ public class GameManager : MonoBehaviour
         //{
         //    _popup.GetComponent<RectTransform>().anchoredPosition += Vector2.up * position;
         //}
+    }
+
+    private string SpawnMoodChatpopup()
+    {
+        string _message = " ";
+        if (VTuberMood <= 30)//low level mood
+        {
+            _message = lowMoodMessages.messages[Random.Range(0, lowMoodMessages.messages.Count)];
+        }
+        else if (VTuberMood >= 31 && VTuberMood <= 69)//mid level mood
+        {
+            _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
+        }
+        else if (VTuberMood >= 70)//high level mood
+        {
+            _message = highMoodMessages.messages[Random.Range(0, highMoodMessages.messages.Count)];
+        }
+        return _message;
+    }
+
+    private string SpawnAudienceChatpopup()
+    {
+        string _message = " ";
+        if (audience <= 25)//low level audience
+        {
+            _message = lowAudienceMessages.messages[Random.Range(0, lowAudienceMessages.messages.Count)];
+        }
+        else if (audience >= 26 && audience <= 50)//mid level audience
+        {
+            _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
+        }
+        else if (audience >= 51)//high level audience
+        {
+            _message = highAudienceMessages.messages[Random.Range(0, highAudienceMessages.messages.Count)];
+        }
+        return _message;
+    }
+
+    private string SpawnApprovalChatpopup()
+    {
+        string _message = " ";
+
+        if (audienceApproval >= 30)//High approval
+        {
+            Debug.Log("Positive Messages");
+            _message = highApprovalMessages.messages[Random.Range(0, highApprovalMessages.messages.Count)];
+        }
+        else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
+        {
+            Debug.Log("Neutral Messages");
+            _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
+        }
+        else if (audienceApproval <= -30)//low approval
+        {
+            Debug.Log("Negative Messages");
+            _message = lowApprovalMessages.messages[Random.Range(0, lowApprovalMessages.messages.Count)];
+        }
+
+        return _message;
     }
 
     public void Death()

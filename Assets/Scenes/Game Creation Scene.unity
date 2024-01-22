@@ -475,9 +475,13 @@ MonoBehaviour:
   player: {fileID: 739674334}
   CameraMoveSpeed: 0.5
   usernames: {fileID: 11400000, guid: 6f83fd55a229b9549858cd2dd6b77d95, type: 2}
-  positiveMessages: {fileID: 11400000, guid: a0b3006bcc8787d42afbc5af60414aaf, type: 2}
-  neutralMessages: {fileID: 11400000, guid: 3d4dbb78c9186bc48bf2c21ebc597cf7, type: 2}
-  negativeMessages: {fileID: 11400000, guid: bb73331b05af65749838b747d48b58c4, type: 2}
+  highApprovalMessages: {fileID: 11400000, guid: a0b3006bcc8787d42afbc5af60414aaf, type: 2}
+  generalMessages: {fileID: 11400000, guid: 3d4dbb78c9186bc48bf2c21ebc597cf7, type: 2}
+  lowApprovalMessages: {fileID: 11400000, guid: bb73331b05af65749838b747d48b58c4, type: 2}
+  lowMoodMessages: {fileID: 11400000, guid: 6fc855e433a4e55488bed8b5415dffb6, type: 2}
+  highMoodMessages: {fileID: 11400000, guid: 8a1c7e2696fbe1c40a7507ad82cfe3ad, type: 2}
+  highAudienceMessages: {fileID: 11400000, guid: 83317eb1e3c08b84891c91a371154670, type: 2}
+  lowAudienceMessages: {fileID: 11400000, guid: 4ccb9e8d00bf315488107e34b9973acb, type: 2}
   VTuberImage: {fileID: 910152281}
   chatpopupParent: {fileID: 71327089}
   chatPopupPrefab: {fileID: 9087147247665118764, guid: aa19eade6ca845e41845148b4dc62fd7, type: 3}
@@ -509,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75dcbcff483174a8bd7fe6bbd589a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chatSpawnTimer: 1
 --- !u!1 &86708281
 GameObject:
   m_ObjectHideFlags: 0

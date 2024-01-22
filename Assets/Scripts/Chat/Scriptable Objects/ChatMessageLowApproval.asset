@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 206306e67a9eb504bad270f14f6d9bf3, type: 3}
-  m_Name: ChatMessageNegative
+  m_Name: ChatMessageLowApproval
   m_EditorClassIdentifier: 
   messages:
   - just quit already
