@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
@@ -12,10 +13,7 @@ public class EndLevel : MonoBehaviour
         {
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;
-
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
+            SceneManager.LoadScene("Game Creation Scene");
         }
     }
 }
