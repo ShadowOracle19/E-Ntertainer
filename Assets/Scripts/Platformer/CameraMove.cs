@@ -5,42 +5,31 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public Transform spawnPoint;
+    public bool FirstEntered = true;
 
     private void Start()
     {
         GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
             return;
         if (collision.gameObject.tag == "Player")
         {
+            if(FirstEntered)//checks if the player is entering this section for the first time
+            {
+                GameManager.Instance.audienceApproval += 5;
+                FirstEntered = false;
+            }
             StopAllCoroutines();
             GameManager.Instance.spawnPoint = spawnPoint;
             //Camera.main.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
             StartCoroutine(MoveCam(GameManager.Instance.CameraMoveSpeed));
         }
     }
-
-    //private IEnumerator MoveCam()
-    //{
-    //    Debug.Log("We have entered the move camera coroutine");
-    //    while(true)
-    //    {
-    //        if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
-    //        {
-    //            break;
-    //        }
-    //        Debug.Log("We have passed the if statement");
-    //        Camera.main.gameObject.transform.position = Vector3.MoveTowards(Camera.main.gameObject.transform.position,
-    //            new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10), 10 * Time.deltaTime);
-
-    //    }
-    //    Debug.Log("We have arrived");
-    //    yield return null;
-    //}
 
     private IEnumerator MoveCam(float time)
     {

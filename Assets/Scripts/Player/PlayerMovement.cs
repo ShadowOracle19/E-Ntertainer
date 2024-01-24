@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
         {
 			OnJumpInput();
+            GameManager.Instance.jumpAudioSource.Play();
         }
 
 		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
@@ -121,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
 		{
 			OnDashInput();
+			GameManager.Instance.dashAudioSource.Play();
 		}
 		#endregion
 
