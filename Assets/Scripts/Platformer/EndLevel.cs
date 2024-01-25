@@ -13,7 +13,7 @@ public class EndLevel : MonoBehaviour
         {
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;
-            SceneManager.LoadScene("Game Creation Scene");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
