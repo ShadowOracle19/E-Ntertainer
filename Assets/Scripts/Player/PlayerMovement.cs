@@ -111,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
         {
 			OnJumpInput();
-            GameManager.Instance.jumpAudioSource.Play();
         }
 
 		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
@@ -423,8 +422,10 @@ public class PlayerMovement : MonoBehaviour
 			force -= RB.velocity.y;
 
 		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-		#endregion
-	}
+
+        GameManager.Instance.jumpAudioSource.Play();
+        #endregion
+    }
 
 	private void WallJump(int dir)
 	{
@@ -434,8 +435,9 @@ public class PlayerMovement : MonoBehaviour
 		LastOnWallRightTime = 0;
 		LastOnWallLeftTime = 0;
 
-		#region Perform Wall Jump
-		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
+        GameManager.Instance.jumpAudioSource.Play();
+        #region Perform Wall Jump
+        Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
 
 		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))

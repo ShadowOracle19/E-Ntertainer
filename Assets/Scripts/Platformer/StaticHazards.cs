@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StaticHazards : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //Check if what the collision is touching is the player
         if (collision.gameObject.tag == "Player")

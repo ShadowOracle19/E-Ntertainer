@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour
     }
 
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
             return;
@@ -24,26 +24,11 @@ public class CameraMove : MonoBehaviour
                 GameManager.Instance.audienceApproval += 5;
                 FirstEntered = false;
             }
-            StopAllCoroutines();
             GameManager.Instance.spawnPoint = spawnPoint;
-            //Camera.main.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
-            StartCoroutine(MoveCam(GameManager.Instance.CameraMoveSpeed));
+            Camera.main.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
+            
         }
     }
 
-    private IEnumerator MoveCam(float time)
-    {
-        Vector3 startingPos = Camera.main.transform.position;
-        Vector3 finalPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
-
-        float elapsedTime = 0;
-
-        while (elapsedTime < time)
-        {
-            Camera.main.transform.position = Vector3.Slerp(startingPos, finalPos, (elapsedTime / time));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-    }
 
 }
