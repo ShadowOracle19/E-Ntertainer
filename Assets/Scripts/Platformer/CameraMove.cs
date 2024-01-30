@@ -15,17 +15,18 @@ public class CameraMove : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
-            return;
+        //if (Camera.main.transform.position == new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10))
+        //    return;
         if (collision.gameObject.tag == "Player")
         {
-            if(FirstEntered)//checks if the player is entering this section for the first time
+            Debug.Log(collision.gameObject.name);
+            GameManager.Instance.spawnPoint = spawnPoint;
+            GameManager.Instance.camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
+            if (FirstEntered)//checks if the player is entering this section for the first time
             {
                 GameManager.Instance.audienceApproval += 5;
                 FirstEntered = false;
             }
-            GameManager.Instance.spawnPoint = spawnPoint;
-            Camera.main.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
             
         }
     }

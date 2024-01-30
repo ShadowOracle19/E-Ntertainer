@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     [Range(0.1f, 1)]
     public float CameraMoveSpeed = 0.5f;
+    public GameObject camera;
 
     [Header("Chat")]
     public ChatUsername usernames;
