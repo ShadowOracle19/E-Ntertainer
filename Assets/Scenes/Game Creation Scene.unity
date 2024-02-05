@@ -2257,7 +2257,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chat <3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a440ef215e1004ba9002118556d11d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_sharedMaterial: {fileID: -3593539214710121413, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2321,7 +2321,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &433323486
@@ -2832,8 +2832,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press SHIFT to Dash
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
+  m_sharedMaterial: {fileID: -3593539214710121413, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2922,7 +2922,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -3593539214710121413, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3214,8 +3214,8 @@ MonoBehaviour:
 
     Press/Hold SPACE to Jump'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
+  m_sharedMaterial: {fileID: -3593539214710121413, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3304,7 +3304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -3593539214710121413, guid: 8b08d17e8c04c3c4cb4fd6331943a14a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3523,13 +3523,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579727409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9725491, g: 0.82745105, b: 1, a: 0}
+  m_Color: {r: 0.9725491, g: 0.82745105, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b25879a85aef4049811869e47d814b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: db76210813ae57e4da0595efc520ee06, type: 2}
+  Data: {fileID: 11400000, guid: de5e6319fc6c89943bab50bb1676091f, type: 2}
   _groundCheckPoint: {fileID: 998240829}
   _groundCheckSize: {x: 0.49, y: 0.03}
   _frontWallCheckPoint: {fileID: 599248621}
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6161b1d00da419e46b6c2486f070e436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68467ef9609ccde47b904b28755304d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5046,7 +5046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a0b4155ae0cad742b0854533158a1ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8fdeff6fcdaf164584b2069db418955, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7245,7 +7245,7 @@ Animator:
   m_GameObject: {fileID: 1348322983}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3ab2732b56942a46ab89f714779952c, type: 2}
+  m_Controller: {fileID: 9100000, guid: a7dbfd95fb3041640b0f6cf935ebf619, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7394,7 +7394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368729807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec2e553b5a99fd42b2aa0c3d1f9a366, type: 3}
+  m_Script: {fileID: 11500000, guid: 66ba3acdbc5a5db4b9a240a64fbdb378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1376159033
@@ -91899,7 +91899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6161b1d00da419e46b6c2486f070e436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68467ef9609ccde47b904b28755304d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
