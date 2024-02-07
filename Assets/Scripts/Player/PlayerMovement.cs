@@ -122,7 +122,8 @@ public class PlayerMovement : MonoBehaviour
 		{
 			OnDashInput();
 			GameManager.Instance.dashAudioSource.Play();
-		}
+            GetComponentInChildren<Animator>().SetTrigger("Dash");
+        }
 		#endregion
 
 		#region COLLISION CHECKS
@@ -142,12 +143,20 @@ public class PlayerMovement : MonoBehaviour
 			//Right Wall Check
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
 					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
-				LastOnWallRightTime = Data.coyoteTime;
+            {
+                LastOnWallRightTime = Data.coyoteTime;
 
-			//Right Wall Check
-			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)
+                GetComponentInChildren<Animator>().SetTrigger("Dash");
+            }
+
+            //Right Wall Check
+            if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)
 				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)) && !IsWallJumping)
-				LastOnWallLeftTime = Data.coyoteTime;
+            {
+                LastOnWallLeftTime = Data.coyoteTime;
+
+                GetComponentInChildren<Animator>().SetTrigger("Dash");
+            }
 
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
@@ -460,8 +469,10 @@ public class PlayerMovement : MonoBehaviour
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
-		#endregion
-	}
+
+        GetComponentInChildren<Animator>().SetTrigger("Jump");
+        #endregion
+    }
 	#endregion
 
 	#region DASH METHODS
