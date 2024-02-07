@@ -388,6 +388,16 @@ public class PlayerMovement : MonoBehaviour
 		//Convert this to a vector and apply to rigidbody
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
+		Debug.Log(_moveInput.x);
+		if(_moveInput.x == 1 || _moveInput.x == -1)
+		{
+			GetComponentInChildren<Animator>().SetBool("Moving", true);
+		}
+		else
+		{
+            GetComponentInChildren<Animator>().SetBool("Moving", false);
+        }
+
 		/*
 		 * For those interested here is what AddForce() will do
 		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
@@ -424,6 +434,7 @@ public class PlayerMovement : MonoBehaviour
 		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
         GameManager.Instance.jumpAudioSource.Play();
+		GetComponentInChildren<Animator>().SetTrigger("Jump");
         #endregion
     }
 
