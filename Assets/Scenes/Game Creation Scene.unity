@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audienceApproval: 0
-  audience: 0
+  audience: 50
   VTuberMood: 50
   timer: 0
   VTuberDefault: {fileID: 21300000, guid: 9d7351dd4d7d2b740b9a9d6767a44581, type: 3}
@@ -1831,7 +1831,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c5db04db3efcf24d839e6c8d432c389, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.845
   m_Pitch: 1
   Loop: 0
   Mute: 0

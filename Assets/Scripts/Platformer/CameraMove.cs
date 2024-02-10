@@ -24,7 +24,7 @@ public class CameraMove : MonoBehaviour
             GameManager.Instance.camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
             if (FirstEntered)//checks if the player is entering this section for the first time
             {
-                GameManager.Instance.audienceApproval += 5;
+                GameManager.Instance.audienceApproval += 4;
                 FirstEntered = false;
             }
             

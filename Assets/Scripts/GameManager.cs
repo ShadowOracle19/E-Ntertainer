@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     [Header("VTuber Attributes")]
     [Range(-50, 50)]//starting approval should be zero
     public float audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
-    public float audience;//0-100
-    public float VTuberMood;
+    public float audience = 50;//0-100
+    public float VTuberMood = 50; //0-100
     public float timer;
     //These sprites will eventually change
     public Sprite VTuberDefault;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public ChatMessage highMoodMessages;
     public ChatMessage highAudienceMessages;
     public ChatMessage lowAudienceMessages;
-    private float audienceStatTimer = 5;
+    private float audienceStatTimer = 3;
 
     [Header("UI")]
     public Image VTuberImage;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
 
         //run this statement
-        VTuberEmotionSwitch(audienceApproval);
+        VTuberEmotionSwitch(VTuberMood);
 
         //Calculate Audience stat
         Audience();
@@ -85,10 +85,13 @@ public class GameManager : MonoBehaviour
         //Calculate Mood Stat
         Mood();
 
+        audienceApproval -= Time.deltaTime/5;
+
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
         audienceApproval = Mathf.Clamp(audienceApproval, -50, 50);
         audience = Mathf.Clamp(audience, 0, 100);
+        VTuberMood = Mathf.Clamp(VTuberMood, 0, 100);
     }
 
     private void Audience()
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            audienceStatTimer = 5;
+            audienceStatTimer = 4;
             if (audienceApproval >= 30)//High approval
             {
                 Debug.Log("High");
@@ -107,12 +110,12 @@ public class GameManager : MonoBehaviour
             }
             else if (audienceApproval <= 29 && audienceApproval >= -29)//Average approval
             {
-                Debug.Log("Average");
+                /*Debug.Log("Average");
                 int rand = Random.Range(1, 5);
                 if(rand == 1)
-                {
+                {*/
                     audience -= 1;
-                }
+                //}
             }
             else if (audienceApproval <= -30)//low approval
             {
@@ -127,17 +130,17 @@ public class GameManager : MonoBehaviour
         VTuberMood += ((audienceApproval * audience) / 1000) * Time.deltaTime;
     }
 
-    public void VTuberEmotionSwitch(float approval)
+    public void VTuberEmotionSwitch(float mood)
     {
-        if(approval >= 30)//High approval
+        if(mood >= 70)//High mood
         {
             VTuberImage.sprite = VTuberPositive;
         }
-        else if(approval >= -29 && approval <= 29)//Average approval
+        else if(mood >= 31 && mood <= 69)//Average mood
         {
             VTuberImage.sprite = VTuberDefault;
         }
-        else if(approval <= -30)//low approval
+        else if(mood <= 30)//low mood
         {
             VTuberImage.sprite = VTuberNegative;
         }
@@ -207,11 +210,11 @@ public class GameManager : MonoBehaviour
         {
             _message = lowAudienceMessages.messages[Random.Range(0, lowAudienceMessages.messages.Count)];
         }
-        else if (audience >= 26 && audience <= 50)//mid level audience
+        else if (audience >= 26 && audience <= 70)//mid level audience
         {
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
-        else if (audience >= 51)//high level audience
+        else if (audience >= 70)//high level audience
         {
             _message = highAudienceMessages.messages[Random.Range(0, highAudienceMessages.messages.Count)];
         }
@@ -244,7 +247,7 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         deathAudioSource.Play();
-        audienceApproval -= 5;
+        audienceApproval -= 2f;
         player.transform.position = spawnPoint.position;
     }
 }
