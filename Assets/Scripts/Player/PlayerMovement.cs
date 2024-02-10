@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			OnDashInput();
 			GameManager.Instance.dashAudioSource.Play();
-            GetComponentInChildren<Animator>().SetTrigger("Dash");
+            GetComponentInChildren<Animator>().SetTrigger("GrabDash");
         }
 		#endregion
 
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastOnWallRightTime = Data.coyoteTime;
 
-                GetComponentInChildren<Animator>().SetTrigger("Dash");
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
             }
 
             //Right Wall Check
@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastOnWallLeftTime = Data.coyoteTime;
 
-                GetComponentInChildren<Animator>().SetTrigger("Dash");
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
             }
 
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
