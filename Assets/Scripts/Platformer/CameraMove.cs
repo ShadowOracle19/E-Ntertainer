@@ -19,7 +19,6 @@ public class CameraMove : MonoBehaviour
         //    return;
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log(collision.gameObject.name);
             GameManager.Instance.spawnPoint = spawnPoint;
             GameManager.Instance.camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
             if (FirstEntered)//checks if the player is entering this section for the first time

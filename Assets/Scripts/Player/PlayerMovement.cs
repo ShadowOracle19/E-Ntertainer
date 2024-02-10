@@ -122,7 +122,8 @@ public class PlayerMovement : MonoBehaviour
 		{
 			OnDashInput();
 			GameManager.Instance.dashAudioSource.Play();
-		}
+            GetComponentInChildren<Animator>().SetTrigger("GrabDash");
+        }
 		#endregion
 
 		#region COLLISION CHECKS
@@ -142,12 +143,20 @@ public class PlayerMovement : MonoBehaviour
 			//Right Wall Check
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
 					|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
-				LastOnWallRightTime = Data.coyoteTime;
+            {
+                LastOnWallRightTime = Data.coyoteTime;
 
-			//Right Wall Check
-			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
+            }
+
+            //Right Wall Check
+            if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)
 				|| (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)) && !IsWallJumping)
-				LastOnWallLeftTime = Data.coyoteTime;
+            {
+                LastOnWallLeftTime = Data.coyoteTime;
+
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
+            }
 
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
 			LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
@@ -388,6 +397,16 @@ public class PlayerMovement : MonoBehaviour
 		//Convert this to a vector and apply to rigidbody
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
+		Debug.Log(_moveInput.x);
+		if(_moveInput.x == 1 || _moveInput.x == -1)
+		{
+			GetComponentInChildren<Animator>().SetBool("Moving", true);
+		}
+		else
+		{
+            GetComponentInChildren<Animator>().SetBool("Moving", false);
+        }
+
 		/*
 		 * For those interested here is what AddForce() will do
 		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
@@ -424,6 +443,7 @@ public class PlayerMovement : MonoBehaviour
 		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
         GameManager.Instance.jumpAudioSource.Play();
+		GetComponentInChildren<Animator>().SetTrigger("Jump");
         #endregion
     }
 
@@ -449,8 +469,10 @@ public class PlayerMovement : MonoBehaviour
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
-		#endregion
-	}
+
+        GetComponentInChildren<Animator>().SetTrigger("Jump");
+        #endregion
+    }
 	#endregion
 
 	#region DASH METHODS

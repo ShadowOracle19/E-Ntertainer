@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public GameObject player;
     [Range(0.1f, 1)]
-    public float CameraMoveSpeed = 0.5f;
+    public float cameraMoveSpeed = 0.5f;
     public GameObject camera;
 
     [Header("Chat")]
@@ -248,6 +248,11 @@ public class GameManager : MonoBehaviour
     {
         deathAudioSource.Play();
         audienceApproval -= 2f;
+        player.GetComponentInChildren<Animator>().SetTrigger("Death");
+        player.GetComponent<Rigidbody2D>().simulated = false;
+    }
+    public void Respawn()
+    {
         player.transform.position = spawnPoint.position;
     }
 }
