@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,9 @@ public class GameManager : MonoBehaviour
     public ChatMessage lowAudienceMessages;
     private float audienceStatTimer = 3;
 
+    [Header("VTuber Dialogue")]
+    public VtuberDialogues dialogues;
+
     [Header("Donations")]
     public DonationMessage generalDonation;
     public float money;
@@ -72,17 +76,40 @@ public class GameManager : MonoBehaviour
     public GameObject chatPopupPrefab;
     public int position = 50;
     private List<GameObject> chatPopups = new List<GameObject>();
+    public TextMeshProUGUI dialogueText;
 
     [Header("Audio")]
     public AudioSource collectibleAudioSource;
     public AudioSource dashAudioSource;
     public AudioSource deathAudioSource;
     public AudioSource jumpAudioSource;
+    public AudioSource landAudioSource;
+    public AudioSource respawnAudioSource;
+    public AudioSource VTuberSpeakAudioSource;
+    public AudioSource walkAudioSource;
+
+    [Header("Pause Menu")]
+    public GameObject pauseMenu;
+    private bool gamePaused = false;
 
 
     // Update is called once per frame
     void Update()
     {
+        //Escape button to pause game
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gamePaused = !gamePaused;
+            if(gamePaused)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
+        }
+
         timer += Time.deltaTime;
         donationTime -= Time.deltaTime;
 
@@ -105,6 +132,18 @@ public class GameManager : MonoBehaviour
         audienceApproval = Mathf.Clamp(audienceApproval, -50, 50);
         audience = Mathf.Clamp(audience, 0, 100);
         VTuberMood = Mathf.Clamp(VTuberMood, 0, 100);
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
     private void Audience()
@@ -160,6 +199,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    #region Chat
     public void SpawnChatPopup()
     {
         //create the popup 
@@ -256,7 +296,9 @@ public class GameManager : MonoBehaviour
 
         return _message;
     }
+    #endregion
 
+    #region Death Respawn
     public void Death()
     {
         deathAudioSource.Play();
@@ -267,8 +309,11 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         player.transform.position = spawnPoint.position;
+        respawnAudioSource.Play();
     }
+    #endregion
 
+    #region Donations
     public void Donations()
     {
         //waits out the time until next donation and checks if another donation is already running before running a new one
@@ -316,4 +361,5 @@ public class GameManager : MonoBehaviour
         dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
+    #endregion
 }

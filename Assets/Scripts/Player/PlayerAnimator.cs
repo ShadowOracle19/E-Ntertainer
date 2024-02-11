@@ -79,6 +79,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             anim.SetTrigger("Land");
             GetComponentInChildren<Animator>().SetTrigger("OnGround");
+            GameManager.Instance.landAudioSource.Play();
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
             justLanded = false;
