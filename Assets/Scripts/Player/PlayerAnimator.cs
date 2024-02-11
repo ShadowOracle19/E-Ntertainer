@@ -68,7 +68,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (startedJumping)
         {
-            anim.SetTrigger("Jump");
+            //GetComponentInChildren<Animator>().SetTrigger("Jump");
             GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
             startedJumping = false;

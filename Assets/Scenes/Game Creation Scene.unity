@@ -4242,7 +4242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: de5e6319fc6c89943bab50bb1676091f, type: 2}
   _groundCheckPoint: {fileID: 998240829}
-  _groundCheckSize: {x: 0.49, y: 0.03}
+  _groundCheckSize: {x: 0.7, y: 0.03}
   _frontWallCheckPoint: {fileID: 599248621}
   _backWallCheckPoint: {fileID: 2083184960}
   _wallCheckSize: {x: 0.5, y: 1}
