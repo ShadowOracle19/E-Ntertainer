@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7237257c852765b4da3cd78e5556a662, type: 3}
+  m_Name: DonationMessageGeneral
+  m_EditorClassIdentifier: 
+  messages:
+  - Let's go Livie!
+  - gibs mony
+  - ily
+  - oops i dropped my wallet
+  - This week's paycheck just dropped. Time to throw it at my favorite streamer.
+  - keep up the good stuff!
+  - Sending love!!! :3
+  - "wanted to show my support!! sorry i don\u2019t have more to donate ><"
+  - how cute
+  - do you have any advice to share with a newbie streamer?
+  - HELP ME IM STUCK IN MY MOMS BASEMENT
+  - stole dads credit card
+  - would you still love us if we were worms
+  - face reveal?
+  - "I have no friends. Here\u2019s some money."
+  - "your streams always got me through hard times. i\u2019ll continue to support
+    you like you did for me!"
+  - Takethis money to buy a better personality
+  - I met my girlfriend through your streams. Thank you, Livie!
+  - do a karaoke stream please!!!

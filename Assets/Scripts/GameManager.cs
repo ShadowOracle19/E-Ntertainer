@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if(_instance is null )
+            if (_instance is null)
             {
                 Debug.LogError("Game Manager is NULL");
             }
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
+
     [Header("VTuber Attributes")]
     [Range(-50, 50)]//starting approval should be zero
     public float audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
@@ -57,6 +57,15 @@ public class GameManager : MonoBehaviour
     public ChatMessage lowAudienceMessages;
     private float audienceStatTimer = 3;
 
+    [Header("Donations")]
+    public DonationMessage generalDonation;
+    public float money;
+    public float donationTime = 10f;
+    public bool donationOn;
+    string dMessage;
+    string dUser;
+
+
     [Header("UI")]
     public Image VTuberImage;
     public Transform chatpopupParent;
@@ -75,6 +84,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        donationTime -= Time.deltaTime;
 
         //run this statement
         VTuberEmotionSwitch(VTuberMood);
@@ -85,7 +95,10 @@ public class GameManager : MonoBehaviour
         //Calculate Mood Stat
         Mood();
 
-        audienceApproval -= Time.deltaTime/5;
+        //plays out donations
+        Donations();
+
+        audienceApproval -= Time.deltaTime / 5;
 
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
@@ -114,7 +127,7 @@ public class GameManager : MonoBehaviour
                 int rand = Random.Range(1, 5);
                 if(rand == 1)
                 {*/
-                    audience -= 1;
+                audience -= 1;
                 //}
             }
             else if (audienceApproval <= -30)//low approval
@@ -132,19 +145,19 @@ public class GameManager : MonoBehaviour
 
     public void VTuberEmotionSwitch(float mood)
     {
-        if(mood >= 70)//High mood
+        if (mood >= 70)//High mood
         {
             VTuberImage.sprite = VTuberPositive;
         }
-        else if(mood >= 31 && mood <= 69)//Average mood
+        else if (mood >= 31 && mood <= 69)//Average mood
         {
             VTuberImage.sprite = VTuberDefault;
         }
-        else if(mood <= 30)//low mood
+        else if (mood <= 30)//low mood
         {
             VTuberImage.sprite = VTuberNegative;
         }
-        
+
     }
 
     public void SpawnChatPopup()
@@ -175,9 +188,9 @@ public class GameManager : MonoBehaviour
 
         string _message = chosenMessageType;
 
-        popup.GetComponent<ChatPopup>().message.text = "<#8F3CE0>"+_username + ":</color> " + _message;
+        popup.GetComponent<ChatPopup>().message.text = "<#8F3CE0>" + _username + ":</color> " + _message;
         popup.GetComponent<RectTransform>().SetAsFirstSibling();
-        
+
         chatPopups.Add(popup);
         //foreach (var _popup in chatPopups)
         //{
@@ -247,12 +260,60 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         deathAudioSource.Play();
-        audienceApproval -= 2f;
+        audienceApproval -= 2.5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
     }
     public void Respawn()
     {
         player.transform.position = spawnPoint.position;
+    }
+
+    public void Donations()
+    {
+        //waits out the time until next donation and checks if another donation is already running before running a new one
+        if (donationTime <= 0 && donationOn == false)
+        {
+            if (audienceApproval <= -20)
+            {
+                LowApprovalDonations();
+            }
+            else if (audienceApproval > -20 && audienceApproval < 20)
+            {
+                GeneralDonations();
+            }
+            else if (audienceApproval >= 20)
+            {
+                HighApprovalDonations();
+            }
+            donationOn = true;
+            donationTime = ((Random.Range(10, 30) * 50) / audience); //randomly generates a window in which donations show up. higher audience = more frequent donations
+        }
+    }
+
+    //general donation message generated
+    public void GeneralDonations()
+    {
+        money = Random.Range(100, 5000) / 100;
+        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)]; //placeholder
+        dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
+        GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
+    }
+
+    public void HighApprovalDonations()
+    {
+        money = Random.Range(500, 10000) / 100;
+        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)];
+        dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
+        GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
+    }
+    
+
+    public void LowApprovalDonations()
+    {
+        money = Random.Range(100, 500) / 100;
+        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)]; //placeholder
+        dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
+        GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
 }
