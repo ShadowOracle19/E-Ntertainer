@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerDeathRespawnAnim : MonoBehaviour
 {
-    
-
     public void Respawn()
     {
         GameManager.Instance.Respawn();
