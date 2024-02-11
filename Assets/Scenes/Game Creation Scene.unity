@@ -787,6 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451b7a63e08960540b02109e44841ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 80160522}
   audienceApproval: 0
   audience: 50
   VTuberMood: 50
@@ -882,6 +883,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueActiveTime: 5
+  dialogueSpawnTimer: 10
+  dialogueSpawnTimerMax: 3
+  dialogueActive: 0
+  message1: 
+  message2: 
 --- !u!1 &86708281
 GameObject:
   m_ObjectHideFlags: 0

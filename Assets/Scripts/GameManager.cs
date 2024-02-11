@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Managers")]
+    public VtuberDialogueSystem dialogueSystem;
 
     [Header("VTuber Attributes")]
     [Range(-50, 50)]//starting approval should be zero
@@ -305,6 +307,7 @@ public class GameManager : MonoBehaviour
         audienceApproval -= 2.5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
+        StartCoroutine(dialogueSystem.typeOutSpecificDialogue(dialogues.death[Random.Range(0, dialogues.death.Count)]));
     }
     public void Respawn()
     {
@@ -312,6 +315,13 @@ public class GameManager : MonoBehaviour
         respawnAudioSource.Play();
     }
     #endregion
+
+    public void collectYarn()
+    {
+        audienceApproval += 1;
+        collectibleAudioSource.Play();
+        StartCoroutine(dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]));
+    }
 
     #region Donations
     public void Donations()
