@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsSliding { get; private set; }
 
 	//Timers (also all fields, could be private and a method returning a bool could be used)
-	public float LastOnGroundTime { get; private set; }
+	public float LastOnGroundTime; //{ get; private set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			OnDashInput();
 			GameManager.Instance.dashAudioSource.Play();
-            GetComponentInChildren<Animator>().SetTrigger("Dash");
+            GetComponentInChildren<Animator>().SetTrigger("GrabDash");
         }
 		#endregion
 
@@ -132,13 +132,19 @@ public class PlayerMovement : MonoBehaviour
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
 			{
-				if(LastOnGroundTime < -0.1f)
+				if(LastOnGroundTime < 0f)
                 {
 					AnimHandler.justLanded = true;
-                }
+				}
+
+				GetComponentInChildren<Animator>().SetBool("InAir", false);
 
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-            }		
+            }
+            else
+            {
+				GetComponentInChildren<Animator>().SetBool("InAir", true);
+			}		
 
 			//Right Wall Check
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
@@ -146,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastOnWallRightTime = Data.coyoteTime;
 
-                GetComponentInChildren<Animator>().SetTrigger("Dash");
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
             }
 
             //Right Wall Check
@@ -155,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 LastOnWallLeftTime = Data.coyoteTime;
 
-                GetComponentInChildren<Animator>().SetTrigger("Dash");
+                GetComponentInChildren<Animator>().SetTrigger("GrabDash");
             }
 
 			//Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
@@ -444,8 +450,8 @@ public class PlayerMovement : MonoBehaviour
 
         GameManager.Instance.jumpAudioSource.Play();
 		GetComponentInChildren<Animator>().SetTrigger("Jump");
-        #endregion
-    }
+		#endregion
+	}
 
 	private void WallJump(int dir)
 	{
@@ -456,8 +462,9 @@ public class PlayerMovement : MonoBehaviour
 		LastOnWallLeftTime = 0;
 
         GameManager.Instance.jumpAudioSource.Play();
-        #region Perform Wall Jump
-        Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
+		GetComponentInChildren<Animator>().SetTrigger("Jump");
+		#region Perform Wall Jump
+		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
 
 		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
@@ -469,8 +476,6 @@ public class PlayerMovement : MonoBehaviour
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
-
-        GetComponentInChildren<Animator>().SetTrigger("Jump");
         #endregion
     }
 	#endregion

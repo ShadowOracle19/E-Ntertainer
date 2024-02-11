@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088b37aa57da80d46932b44cc64b4641, type: 3}
+  m_Name: VTuberDialogue
+  m_EditorClassIdentifier: 
+  general:
+  - "Let\u2019s go, Heartbeats!!!"
+  - This game is so cute
+  - How have you all been doing, Heartbeats?
+  lowMood:
+  - "Guys, I might end stream early tonight\u2026"
+  - I kind of want to be done with this game
+  - "My head hurts for some reason\u2026"
+  - "Sorry my energy\u2019s kinda low, guys\u2026"
+  highMood:
+  - "I\u2019m having such a good day!!"
+  - I should play more platformers, this is fun!
+  - "YIPPEEEEEE \u2026Sorry"
+  lowAudience:
+  - "\u2026\u2026"
+  - "Thanks to everyone who\u2019s stuck around!!"
+  - "Don\u2019t leave, we\u2019ll make progress soon\u2026!"
+  - "I wonder if anyone\u2019s listening\u2026"
+  - "If you\u2019re still here, you\u2019re a true Heartbeat"
+  highAudience:
+  - Whoah! We got a Hype Subway!!
+  - We have so many Heartbeats tonight!!
+  - "Chat\u2019s scrolling so fast I can\u2019t read it"
+  - Welcome to all the new viewers!
+  - "So many people\u2026"
+  - "We have a full house tonight, don\u2019t we~"
+  lowApproval:
+  - Mods? Mods, I need you to ban someone~
+  - Stop making fun of me!!!
+  - This game is a lot harder than it looks!!!
+  highApproval:
+  - Awww, thanks for the positivity guys!!
+  - "I\u2019m pretty good at this!"
+  - Heartbeats, am I a gamer???
+  death:
+  - Oh, come on!
+  - "This game is haaaard\u2026"
+  - "Heartbeats, you didn\u2019t see that, okay?"
+  - I thought I had it that time!
+  - SHIT
+  collectible:
+  - 'Oooh! '
+  - More thread! Should we do some sewing, chat?
+  - Pretty~
+  checkpoint:
+  - "Phew, we\u2019re safe"
+  - I did it!! Did you believe in me?
+  - "Take that, haters!! [note I hate the word haters but I can\u2019t think of a
+    better one right now]"
+  - Another step closer to saving our girl!!
+  - See? We got this Heartbeats!!
