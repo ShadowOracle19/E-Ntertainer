@@ -8,6 +8,7 @@ public class VtuberDialogueSystem : MonoBehaviour
     public float dialogueSpawnTimer;
     public float dialogueSpawnTimerMax = 10;
     public bool dialogueActive = false;
+    public int dialogueVoice = 2;
 
     public string message1;
     public string message2;
@@ -97,9 +98,14 @@ public class VtuberDialogueSystem : MonoBehaviour
         foreach(char letter in dialogue1)
         {
             GameManager.Instance.dialogueText.text += letter.ToString();
-            GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-            GameManager.Instance.VTuberSpeakAudioSource.Play();
-            yield return new WaitForSeconds(0.2f);
+            dialogueVoice--;
+            if (dialogueVoice == 0)
+            {
+                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
+                GameManager.Instance.VTuberSpeakAudioSource.Play();
+                dialogueVoice = 2;
+            }
+            yield return new WaitForSeconds(0.05f);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);
@@ -110,9 +116,14 @@ public class VtuberDialogueSystem : MonoBehaviour
         foreach (char letter in dialogue2)
         {
             GameManager.Instance.dialogueText.text += letter.ToString();
-            GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-            GameManager.Instance.VTuberSpeakAudioSource.Play();
-            yield return new WaitForSeconds(0.2f);
+            dialogueVoice--;
+            if (dialogueVoice == 0)
+            {
+                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
+                GameManager.Instance.VTuberSpeakAudioSource.Play();
+                dialogueVoice = 2;
+            }
+            yield return new WaitForSeconds(0.05f);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);
@@ -137,9 +148,14 @@ public class VtuberDialogueSystem : MonoBehaviour
         foreach (char letter in dialogue)
         {
             GameManager.Instance.dialogueText.text += letter.ToString();
-            GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-            GameManager.Instance.VTuberSpeakAudioSource.Play();
-            yield return new WaitForSeconds(0.2f);
+            dialogueVoice--;
+            if (dialogueVoice == 0)
+            {
+                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
+                GameManager.Instance.VTuberSpeakAudioSource.Play();
+                dialogueVoice = 2;
+            }
+            yield return new WaitForSeconds(0.05f);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);

@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     public AudioSource respawnAudioSource;
     public AudioSource VTuberSpeakAudioSource;
     public AudioSource walkAudioSource;
+    public AudioSource donationAudioSource;
 
     [Header("Pause Menu")]
     public GameObject pauseMenu;

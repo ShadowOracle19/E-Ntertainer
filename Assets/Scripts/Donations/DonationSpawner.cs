@@ -25,6 +25,7 @@ public class DonationSpawner : MonoBehaviour
     {
         donationPopup.text = "<#27a9d9>" + username + "</color> has donated <#27a9d9>$" + money.ToString() +"</color>!";
         dMessage.text = "\"" + message + "\"";
+        GameManager.Instance.donationAudioSource.Play();
     }
     
     public void DonationTime()
