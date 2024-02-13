@@ -139,7 +139,7 @@ public class VtuberDialogueSystem : MonoBehaviour
     //This should override text natrually generated from this script
     public IEnumerator typeOutSpecificDialogue(string dialogue)
     {
-        if (GameManager.Instance.dialogueSystem.dialogueActive) StopCoroutine(vtuberTalking);
+        if (dialogueActive) StopCoroutine(vtuberTalking);
         dialogueActive = true;
         GameManager.Instance.dialogueText.gameObject.SetActive(true);
         GameManager.Instance.dialogueText.text = ""; //clear dialogue text
