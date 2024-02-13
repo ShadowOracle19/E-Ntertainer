@@ -95,12 +95,24 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     private bool gamePaused = false;
 
+    [Header("Collectible")]
+    public TextMeshProUGUI collectibleText;
+    public Transform collectibleParent;
+    public int collectiblesCount;
+    public int collectiblesMax;
+
+    private void Start()
+    {
+
+        collectiblesMax = collectibleParent.childCount;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        CollectibleCount();
         //Escape button to pause game
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             gamePaused = !gamePaused;
             if(gamePaused)
@@ -136,7 +148,7 @@ public class GameManager : MonoBehaviour
         audience = Mathf.Clamp(audience, 0, 100);
         VTuberMood = Mathf.Clamp(VTuberMood, 0, 100);
     }
-
+    #region pause menu
     private void PauseGame()
     {
         Time.timeScale = 0;
@@ -148,7 +160,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
+    #endregion
 
+    
     private void Audience()
     {
         if (audienceStatTimer > 0)//Countdown to 5 seconds
@@ -317,8 +331,14 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public void CollectibleCount()
+    {
+        collectibleText.text = collectiblesCount + "/" + collectiblesMax;
+    }
+
     public void collectYarn()
     {
+        collectiblesCount += 1;
         audienceApproval += 1;
         collectibleAudioSource.Play();
         StartCoroutine(dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]));
