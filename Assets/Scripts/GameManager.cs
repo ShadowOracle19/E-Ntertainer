@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -322,7 +323,8 @@ public class GameManager : MonoBehaviour
         audienceApproval -= 2.5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
-        StartCoroutine(dialogueSystem.typeOutSpecificDialogue(dialogues.death[Random.Range(0, dialogues.death.Count)]));
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.death[Random.Range(0, dialogues.death.Count)]);
+        StartCoroutine(dialogueSystem.vtuberTalking);
     }
     public void Respawn()
     {
@@ -341,7 +343,12 @@ public class GameManager : MonoBehaviour
         collectiblesCount += 1;
         audienceApproval += 1;
         collectibleAudioSource.Play();
-        StartCoroutine(dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]));
+        if(!dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]);
+            StartCoroutine(dialogueSystem.vtuberTalking);
+
+        }
     }
 
     #region Donations
