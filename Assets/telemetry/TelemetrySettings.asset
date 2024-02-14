@@ -17,4 +17,4 @@ MonoBehaviour:
   _version: test1
   _serverURL: https://downmemorylaneserver-441ecdda2ea5.herokuapp.com/
   serverCommunication: 0
-  debugLogging: 2
+  debugLogging: 0

@@ -108,7 +108,8 @@ public class GameManager : MonoBehaviour
     public int collectiblesMax;
 
     [Header("Telemetry")]
-    public TelemetryLogger telemetry; 
+    public bool moodEnd = false;
+    public bool audienceEnd = false;
 
     private void Start()
     {
@@ -201,6 +202,12 @@ public class GameManager : MonoBehaviour
                 audience += 1;
             }
 
+            if (audience <= 1 && audienceEnd == false)
+            {
+                audienceEnd = true;
+                TelemetryLogger.Log(this, "Audience Ending Achieved");
+            }
+
             //adjusts viewership UI
             ViewershipAdjust();
         }
@@ -209,6 +216,11 @@ public class GameManager : MonoBehaviour
     private void Mood()
     {
         VTuberMood += ((audienceApproval * audience) / 10000) * Time.deltaTime;
+        if (VTuberMood <= 1 && moodEnd == false)
+        {
+            moodEnd = true;
+            TelemetryLogger.Log(this, "Mood Ending Achieved");
+        }
     }
 
     public void VTuberEmotionSwitch(float mood)
@@ -334,6 +346,7 @@ public class GameManager : MonoBehaviour
         audienceApproval -= 2.5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
+        TelemetryLogger.Log(this, "Death", player.transform.position);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -360,7 +373,6 @@ public class GameManager : MonoBehaviour
         collectibleAudioSource.Play();
         if(!dialogueSystem.dialogueActive)
         {
-            Debug.Log("yarn dialogue");
             dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]);
             dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
 
@@ -438,6 +450,6 @@ public class GameManager : MonoBehaviour
 
     public void Speaking()
     {
-        camView.position = startingCam + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 3, 0f);
+        camView.position = new Vector3(camView.position.x, startingCam.y, 0f) + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 4, 0f);
     }
 }
