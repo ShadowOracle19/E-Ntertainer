@@ -86,6 +86,6 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
 
-        anim.SetFloat("Vel Y", mov.RB.velocity.y);
+        //anim.SetFloat("Vel Y", mov.RB.velocity.y);
     }
 }

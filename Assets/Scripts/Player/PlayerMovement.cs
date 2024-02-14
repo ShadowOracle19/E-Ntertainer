@@ -403,7 +403,7 @@ public class PlayerMovement : MonoBehaviour
 		//Convert this to a vector and apply to rigidbody
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
 
-		Debug.Log(_moveInput.x);
+		//Debug.Log(_moveInput.x);
 		if(_moveInput.x == 1 || _moveInput.x == -1)
 		{
 			GetComponentInChildren<Animator>().SetBool("Moving", true);

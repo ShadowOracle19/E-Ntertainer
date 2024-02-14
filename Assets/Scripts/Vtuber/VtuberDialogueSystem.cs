@@ -6,14 +6,16 @@ public class VtuberDialogueSystem : MonoBehaviour
 {
     public float dialogueActiveTime = 5;
     public float dialogueSpawnTimer;
-    public float dialogueSpawnTimerMax = 10;
+    public float timeWaited = 0.025f;
+    public float dialogueSpawnTimerMax = 15;
     public bool dialogueActive = false;
-    public int dialogueVoice = 2;
+    public int dialogueVoice = 4;
 
     public string message1;
     public string message2;
 
     public IEnumerator vtuberTalking;
+    public Coroutine thisCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class VtuberDialogueSystem : MonoBehaviour
     void Update()
     {
         DialogueSpawner();
+
     }
 
     private void DialogueSpawner()
@@ -81,7 +84,7 @@ public class VtuberDialogueSystem : MonoBehaviour
 
             vtuberTalking = typeOutDialogue(message1, message2);
 
-            StartCoroutine(vtuberTalking); //play first dialogue
+            thisCoroutine = StartCoroutine(vtuberTalking); //play first dialogue
         }
     }
 
@@ -97,15 +100,16 @@ public class VtuberDialogueSystem : MonoBehaviour
         //type out each letter and make the vtuber sound effect play
         foreach(char letter in dialogue1)
         {
+            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
             dialogueVoice--;
             if (dialogueVoice == 0)
             {
                 GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
                 GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 2;
+                dialogueVoice = 4;
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(timeWaited);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);
@@ -115,15 +119,16 @@ public class VtuberDialogueSystem : MonoBehaviour
         //type out each letter and make the vtuber sound effect play for second dialogue
         foreach (char letter in dialogue2)
         {
+            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
             dialogueVoice--;
             if (dialogueVoice == 0)
             {
                 GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
                 GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 2;
+                dialogueVoice = 4;
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(timeWaited);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);
@@ -139,7 +144,7 @@ public class VtuberDialogueSystem : MonoBehaviour
     //This should override text natrually generated from this script
     public IEnumerator typeOutSpecificDialogue(string dialogue)
     {
-        if (dialogueActive) StopCoroutine(vtuberTalking);
+        //if (dialogueActive) StopCoroutine(vtuberTalking);
         dialogueActive = true;
         GameManager.Instance.dialogueText.gameObject.SetActive(true);
         GameManager.Instance.dialogueText.text = ""; //clear dialogue text
@@ -147,15 +152,16 @@ public class VtuberDialogueSystem : MonoBehaviour
         //type out each letter and make the vtuber sound effect play
         foreach (char letter in dialogue)
         {
+            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
             dialogueVoice--;
             if (dialogueVoice == 0)
             {
                 GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
                 GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 2;
+                dialogueVoice = 4;
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(timeWaited);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);

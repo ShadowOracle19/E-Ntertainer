@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     public Image VTuberImage;
     public Transform chatpopupParent;
     public GameObject chatPopupPrefab;
+    public Transform camView;
+    public Vector3 startingCam;
     public int position = 50;
     private List<GameObject> chatPopups = new List<GameObject>();
     public TextMeshProUGUI dialogueText;
@@ -107,7 +109,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        startingCam = camView.position;
         collectiblesMax = collectibleParent.childCount;
     }
 
@@ -329,8 +331,12 @@ public class GameManager : MonoBehaviour
         audienceApproval -= 2.5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
         dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.death[Random.Range(0, dialogues.death.Count)]);
-        StartCoroutine(dialogueSystem.vtuberTalking);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
     }
     public void Respawn()
     {
@@ -351,8 +357,9 @@ public class GameManager : MonoBehaviour
         collectibleAudioSource.Play();
         if(!dialogueSystem.dialogueActive)
         {
+            Debug.Log("yarn dialogue");
             dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]);
-            StartCoroutine(dialogueSystem.vtuberTalking);
+            dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
 
         }
     }
@@ -424,5 +431,10 @@ public class GameManager : MonoBehaviour
     {
         float views = Random.Range((audience * audience * 0.95f), (audience * audience * 1.10f));
         return views;
+    }
+
+    public void Speaking()
+    {
+        camView.position = startingCam + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 3, 0f);
     }
 }
