@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour
     public int collectiblesCount;
     public int collectiblesMax;
 
+    [Header("Telemetry")]
+    public TelemetryLogger telemetry; 
+
     private void Start()
     {
         startingCam = camView.position;
