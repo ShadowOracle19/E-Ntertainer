@@ -121,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
 		{
 			OnDashInput();
-			GameManager.Instance.dashAudioSource.Play();
             GetComponentInChildren<Animator>().SetTrigger("GrabDash");
         }
 		#endregion
@@ -237,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
 			IsWallJumping = false;
 			_isJumpCut = false;
 
+			GameManager.Instance.dashAudioSource.Play();
 			StartCoroutine(nameof(StartDash), _lastDashDir);
 		}
 		#endregion

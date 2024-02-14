@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
     string dMessage;
     string dUser;
 
+    [Header("Viewership Counter")]
+    public int viewership;
+    public TextMeshProUGUI viewText;
 
     [Header("UI")]
     public Image VTuberImage;
@@ -177,12 +180,15 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Low");
                 audience += 1;
             }
+
+            //adjusts viewership UI
+            ViewershipAdjust();
         }
     }
 
     private void Mood()
     {
-        VTuberMood += ((audienceApproval * audience) / 1000) * Time.deltaTime;
+        VTuberMood += ((audienceApproval * audience) / 10000) * Time.deltaTime;
     }
 
     public void VTuberEmotionSwitch(float mood)
@@ -373,4 +379,23 @@ public class GameManager : MonoBehaviour
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
     #endregion
+
+    public void ViewershipAdjust()
+    {
+        if (audience >= 80)
+        {
+            viewership = Mathf.RoundToInt((ViewCalcuation() * Mathf.Lerp(1, 10, ((audience - 80) / 20))));
+        }
+        else
+        {
+            viewership = Mathf.RoundToInt(ViewCalcuation());
+        }
+        viewText.text = viewership.ToString();
+    }
+
+    private float ViewCalcuation()
+    {
+        float views = Random.Range((audience * audience * 0.95f), (audience * audience * 1.10f));
+        return views;
+    }
 }
