@@ -27,11 +27,11 @@ public class EndLevel : MonoBehaviour
             TelemetryLogger.Log(this, "Time Spent", Time.time);
             TelemetryLogger.Log(this, "Collected Collectibles", GameManager.Instance.collectiblesCount);
 
-            /*foreach (Transform coin in collectibles)
+            foreach (Transform coin in collectibles)
             {
                 TelemetryLogger.Log(this, "Uncollected Collectible", coin.position);
             }
-            */
+            
 
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;

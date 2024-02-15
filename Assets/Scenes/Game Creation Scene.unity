@@ -3015,7 +3015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibles: []
-  allCollect: {fileID: 1671673482}
+  allCollect: {fileID: 1671673483}
 --- !u!212 &425811443
 SpriteRenderer:
   m_ObjectHideFlags: 0
