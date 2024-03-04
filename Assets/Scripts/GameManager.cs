@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
     public int position = 50;
     private List<GameObject> chatPopups = new List<GameObject>();
     public TextMeshProUGUI dialogueText;
+    public bool triggerAchievement = false;
+    public Animator achievementPopup;
 
     [Header("Audio")]
     public AudioSource collectibleAudioSource;
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour
     [Header("Telemetry")]
     public bool moodEnd = false;
     public bool audienceEnd = false;
+
 
     private void Start()
     {
@@ -157,15 +160,21 @@ public class GameManager : MonoBehaviour
         audienceApproval = Mathf.Clamp(audienceApproval, -50, 50);
         audience = Mathf.Clamp(audience, 0, 100);
         VTuberMood = Mathf.Clamp(VTuberMood, 0, 100);
+
+        //Achievement popup trigger
+        if(collectiblesCount == collectiblesMax)
+        {
+            AchievementPopup();
+        }
     }
     #region pause menu
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
@@ -453,8 +462,13 @@ public class GameManager : MonoBehaviour
         camView.position = new Vector3(camView.position.x, startingCam.y, 0f) + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 4, 0f);
     }
 
-    public void Volume()
+    public void AchievementPopup()
     {
-
+        if(triggerAchievement)
+        {
+            return;
+        }    
+        triggerAchievement = true;
+        achievementPopup.SetTrigger("achievement");
     }
 }
