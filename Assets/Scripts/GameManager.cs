@@ -452,4 +452,9 @@ public class GameManager : MonoBehaviour
     {
         camView.position = new Vector3(camView.position.x, startingCam.y, 0f) + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 4, 0f);
     }
+
+    public void Volume()
+    {
+
+    }
 }
