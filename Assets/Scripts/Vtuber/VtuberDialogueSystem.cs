@@ -16,7 +16,7 @@ public class VtuberDialogueSystem : MonoBehaviour
 
     public IEnumerator vtuberTalking;
     public Coroutine thisCoroutine;
-
+    public bool cutscenePlaying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,8 @@ public class VtuberDialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DialogueSpawner();
+        if(!cutscenePlaying)
+            DialogueSpawner();
 
     }
 

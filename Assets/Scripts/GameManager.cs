@@ -471,4 +471,16 @@ public class GameManager : MonoBehaviour
         triggerAchievement = true;
         achievementPopup.SetTrigger("achievement");
     }
+
+    public void PlayCutscene(CutsceneSequence sequence)//play this to start cutscene
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<VtuberDialogueSystem>().cutscenePlaying = true;
+    }
+
+    public void EndCutscene()//play this once the cutscene ends
+    {
+        player.GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<VtuberDialogueSystem>().cutscenePlaying = false;
+    }
 }
