@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public Sprite VTuberDefault;
     public Sprite VTuberPositive;
     public Sprite VTuberNegative;
+    //Live2D stuff
+    public Animator livie2d;
 
     //only variables relating to the platformer should go here
     [Header("Platformer")]

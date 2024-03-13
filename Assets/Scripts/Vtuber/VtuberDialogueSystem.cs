@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VtuberDialogueSystem : MonoBehaviour
 {
-    public float dialogueActiveTime = 5;
+    public float dialogueActiveTime = 8;
     public float dialogueSpawnTimer;
     public float timeWaited = 0.025f;
     public float dialogueSpawnTimerMax = 15;
@@ -97,8 +97,12 @@ public class VtuberDialogueSystem : MonoBehaviour
         GameManager.Instance.dialogueText.gameObject.SetActive(true);
         GameManager.Instance.dialogueText.text = ""; //clear dialogue text
 
+        //GameManager.Instance.livie2d.SetBool("isTalking", true);
+        Debug.Log("Hi");
+        GameManager.Instance.livie2d.SetTrigger("Talking");
+
         //type out each letter and make the vtuber sound effect play
-        foreach(char letter in dialogue1)
+        foreach (char letter in dialogue1)
         {
             GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
@@ -112,7 +116,13 @@ public class VtuberDialogueSystem : MonoBehaviour
             yield return new WaitForSeconds(timeWaited);
         }
 
+        //GameManager.Instance.livie2d.SetBool("isTalking", false);
+
         yield return new WaitForSeconds(dialogueActiveTime);
+
+        //GameManager.Instance.livie2d.SetBool("isTalking", true);
+        GameManager.Instance.livie2d.SetTrigger("Talking");
+        Debug.Log("It me");
 
         GameManager.Instance.dialogueText.text = ""; //clear dialogue text
 
@@ -131,6 +141,7 @@ public class VtuberDialogueSystem : MonoBehaviour
             yield return new WaitForSeconds(timeWaited);
         }
 
+        //GameManager.Instance.livie2d.SetBool("isTalking", false);
         yield return new WaitForSeconds(dialogueActiveTime);
 
         GameManager.Instance.dialogueText.gameObject.SetActive(false);
