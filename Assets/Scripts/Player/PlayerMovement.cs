@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
 	//Timers (also all fields, could be private and a method returning a bool could be used)
 	public float LastOnGroundTime; //{ get; private set; }
 	public float LastOnWallTime { get; private set; }
-	public float LastOnWallRightTime { get; private set; }
-	public float LastOnWallLeftTime { get; private set; }
+	public float LastOnWallRightTime; //{ get; private set; }
+	public float LastOnWallLeftTime; //{ get; private set; }
 
 	//Jump
 	private bool _isJumpCut;
@@ -466,18 +466,32 @@ public class PlayerMovement : MonoBehaviour
 		#region Perform Wall Jump
 		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
+		print(force.x);
 
-		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
+		if (RB.velocity.x != 0)
 			force.x -= RB.velocity.x;
+			print(force.x);
+
+		/*if(RB.velocity.x < 0)
+        {
+			force.x -= RB.velocity.x;
+        }else if(RB.velocity.y > 0){
+			force.x -= RB.velocity.x;
+		}*/
 
 		if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
+			force.y -= RB.velocity.y;
+		else if (RB.velocity.y > 0)
 			force.y -= RB.velocity.y;
 
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
-        #endregion
-    }
+
+		Turn();
+		print(RB.velocity);
+		#endregion
+	}
 	#endregion
 
 	#region DASH METHODS

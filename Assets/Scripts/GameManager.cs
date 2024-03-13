@@ -62,6 +62,14 @@ public class GameManager : MonoBehaviour
     public ChatMessage highAudienceMessages;
     public ChatMessage lowAudienceMessages;
     private float audienceStatTimer = 3;
+    public Color currentColor;
+    public Color lMoodColor;
+    public Color hMoodColor;
+    public Color lAppColor;
+    public Color hAppColor;
+    public Color lAudColor;
+    public Color hAudColor;
+    public Color defaultColor;
 
     [Header("VTuber Dialogue")]
     public VtuberDialogues dialogues;
@@ -117,6 +125,7 @@ public class GameManager : MonoBehaviour
     {
         startingCam = camView.position;
         collectiblesMax = collectibleParent.childCount;
+        print(ColorUtility.ToHtmlStringRGBA(lMoodColor));
     }
 
     // Update is called once per frame
@@ -210,6 +219,11 @@ public class GameManager : MonoBehaviour
                 TelemetryLogger.Log(this, "Audience Ending Achieved");
             }
 
+            if (audience <= 30)
+            {
+                VTuberMood-=1;
+            }
+
             //adjusts viewership UI
             ViewershipAdjust();
         }
@@ -217,7 +231,7 @@ public class GameManager : MonoBehaviour
 
     private void Mood()
     {
-        VTuberMood += ((audienceApproval * audience) / 10000) * Time.deltaTime;
+        VTuberMood += ((audienceApproval * audience) / 3000) * Time.deltaTime;
         if (VTuberMood <= 1 && moodEnd == false)
         {
             moodEnd = true;
@@ -271,7 +285,7 @@ public class GameManager : MonoBehaviour
 
         string _message = chosenMessageType;
 
-        popup.GetComponent<ChatPopup>().message.text = "<#8F3CE0>" + _username + ":</color> " + _message;
+        popup.GetComponent<ChatPopup>().message.text = "<#" + ColorUtility.ToHtmlStringRGBA(currentColor) + ">" + _username + ":</color> " + _message;
         popup.GetComponent<RectTransform>().SetAsFirstSibling();
 
         chatPopups.Add(popup);
@@ -286,14 +300,17 @@ public class GameManager : MonoBehaviour
         string _message = " ";
         if (VTuberMood <= 30)//low level mood
         {
+            currentColor = lMoodColor;
             _message = lowMoodMessages.messages[Random.Range(0, lowMoodMessages.messages.Count)];
         }
         else if (VTuberMood >= 31 && VTuberMood <= 69)//mid level mood
         {
+            currentColor = defaultColor;
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
         else if (VTuberMood >= 70)//high level mood
         {
+            currentColor = hMoodColor;
             _message = highMoodMessages.messages[Random.Range(0, highMoodMessages.messages.Count)];
         }
         return _message;
@@ -304,14 +321,17 @@ public class GameManager : MonoBehaviour
         string _message = " ";
         if (audience <= 25)//low level audience
         {
+            currentColor = lAudColor;
             _message = lowAudienceMessages.messages[Random.Range(0, lowAudienceMessages.messages.Count)];
         }
         else if (audience >= 26 && audience <= 70)//mid level audience
         {
+            currentColor = defaultColor;
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
         else if (audience >= 70)//high level audience
         {
+            currentColor = hAudColor;
             _message = highAudienceMessages.messages[Random.Range(0, highAudienceMessages.messages.Count)];
         }
         return _message;
@@ -324,16 +344,19 @@ public class GameManager : MonoBehaviour
         if (audienceApproval >= 30)//High approval
         {
             Debug.Log("Positive Messages");
+            currentColor = hAppColor;
             _message = highApprovalMessages.messages[Random.Range(0, highApprovalMessages.messages.Count)];
         }
         else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
         {
             Debug.Log("Neutral Messages");
+            currentColor = defaultColor;
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
         else if (audienceApproval <= -30)//low approval
         {
             Debug.Log("Negative Messages");
+            currentColor = lAppColor;
             _message = lowApprovalMessages.messages[Random.Range(0, lowApprovalMessages.messages.Count)];
         }
 
@@ -345,7 +368,7 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         deathAudioSource.Play();
-        audienceApproval -= 2.5f;
+        audienceApproval -= 4f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
         TelemetryLogger.Log(this, "Death", player.transform.position);
