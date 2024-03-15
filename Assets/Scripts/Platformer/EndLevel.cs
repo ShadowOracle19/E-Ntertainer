@@ -8,6 +8,8 @@ public class EndLevel : MonoBehaviour
     public Transform[] collectibles;
     public Transform allCollect;
 
+    public GameObject finalCutsceneUI;
+
     //when player touches the end point they will spawn at the spawn point
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,7 +37,10 @@ public class EndLevel : MonoBehaviour
 
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;
-            SceneManager.LoadScene("Menu");
+            //SceneManager.LoadScene("Menu");
+
+            finalCutsceneUI.SetActive(true);
+            GameManager.Instance.PlayTrueEndingCutscene(GameManager.Instance.trueEnding);
         }
     }
 }

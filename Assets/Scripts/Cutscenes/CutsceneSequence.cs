@@ -14,10 +14,13 @@ public class CutsceneSequence : ScriptableObject
     public string[] vTuberLines;
 }
 
+
 [System.Serializable]
 public struct Line
 {
     public string characterName;
+
+    public Color textColor;
 
     [TextArea(2, 5)]
     public string text;

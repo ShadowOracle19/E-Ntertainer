@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 //using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -109,6 +110,12 @@ public class GameManager : MonoBehaviour
     public int collectiblesCount;
     public int collectiblesMax;
 
+    [Header("Cutscenes")]
+    public CutsceneSequence lowMood;
+    public CutsceneSequence lowAudience;
+    public CutsceneSequence trueEnding;
+    public bool statEndingPlaying = false;
+
     [Header("Telemetry")]
     public bool moodEnd = false;
     public bool audienceEnd = false;
@@ -166,7 +173,24 @@ public class GameManager : MonoBehaviour
         {
             AchievementPopup();
         }
+
+        //stat ending cutscenes 
+        //low mood
+        if(VTuberMood == 0 && !statEndingPlaying)
+        {
+            statEndingPlaying = true;
+            LowMoodEnding(lowMood);
+        }
+
+        //low audience
+        if(audience == 0 && !statEndingPlaying)
+        {
+            statEndingPlaying = true;
+            LowAudienceEnding(lowAudience);
+        }
+
     }
+
     #region pause menu
     public void PauseGame()
     {
@@ -181,7 +205,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
+    #region stats
     private void Audience()
     {
         if (audienceStatTimer > 0)//Countdown to 5 seconds
@@ -248,6 +272,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    #endregion
 
     #region Chat
     public void SpawnChatPopup()
@@ -287,6 +312,7 @@ public class GameManager : MonoBehaviour
         //    _popup.GetComponent<RectTransform>().anchoredPosition += Vector2.up * position;
         //}
     }
+
 
     private string SpawnMoodChatpopup()
     {
@@ -330,17 +356,17 @@ public class GameManager : MonoBehaviour
 
         if (audienceApproval >= 30)//High approval
         {
-            Debug.Log("Positive Messages");
+            //Debug.Log("Positive Messages");
             _message = highApprovalMessages.messages[Random.Range(0, highApprovalMessages.messages.Count)];
         }
         else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
         {
-            Debug.Log("Neutral Messages");
+            //Debug.Log("Neutral Messages");
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
         else if (audienceApproval <= -30)//low approval
         {
-            Debug.Log("Negative Messages");
+            //Debug.Log("Negative Messages");
             _message = lowApprovalMessages.messages[Random.Range(0, lowApprovalMessages.messages.Count)];
         }
 
@@ -370,6 +396,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region collectables
     public void CollectibleCount()
     {
         collectibleText.text = collectiblesCount + "/" + collectiblesMax;
@@ -387,6 +414,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
+    #endregion
 
     #region Donations
     public void Donations()
@@ -438,6 +466,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region viewers
     public void ViewershipAdjust()
     {
         if (audience >= 80)
@@ -456,6 +485,7 @@ public class GameManager : MonoBehaviour
         float views = Random.Range((audience * audience * 0.95f), (audience * audience * 1.10f));
         return views;
     }
+    #endregion
 
     public void Speaking()
     {
@@ -472,10 +502,41 @@ public class GameManager : MonoBehaviour
         achievementPopup.SetTrigger("achievement");
     }
 
-    public void PlayCutscene(CutsceneSequence sequence)//play this to start cutscene
+
+    #region cutscene
+    public void StartCutscene()//play this to start cutscene
     {
         player.GetComponent<PlayerMovement>().enabled = false;
         GetComponent<VtuberDialogueSystem>().cutscenePlaying = true;
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+    }
+
+    public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        CutsceneManager.Instance.PlayCutscene(cutscene);
+    }
+
+    public void LowMoodEnding(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutCutsceneDialogue(cutscene.vTuberLines);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
+    }
+
+    public void LowAudienceEnding(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutCutsceneDialogue(cutscene.vTuberLines);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
     }
 
     public void EndCutscene()//play this once the cutscene ends
@@ -483,4 +544,10 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = true;
         GetComponent<VtuberDialogueSystem>().cutscenePlaying = false;
     }
+
+    public void EndingCutsceneFinished()//send player back to menu
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    #endregion
 }
