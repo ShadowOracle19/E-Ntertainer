@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 //using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -85,6 +86,8 @@ public class GameManager : MonoBehaviour
     public int position = 50;
     private List<GameObject> chatPopups = new List<GameObject>();
     public TextMeshProUGUI dialogueText;
+    public bool triggerAchievement = false;
+    public Animator achievementPopup;
 
     [Header("Audio")]
     public AudioSource collectibleAudioSource;
@@ -107,9 +110,16 @@ public class GameManager : MonoBehaviour
     public int collectiblesCount;
     public int collectiblesMax;
 
+    [Header("Cutscenes")]
+    public CutsceneSequence lowMood;
+    public CutsceneSequence lowAudience;
+    public CutsceneSequence trueEnding;
+    public bool statEndingPlaying = false;
+
     [Header("Telemetry")]
     public bool moodEnd = false;
     public bool audienceEnd = false;
+
 
     private void Start()
     {
@@ -157,22 +167,45 @@ public class GameManager : MonoBehaviour
         audienceApproval = Mathf.Clamp(audienceApproval, -50, 50);
         audience = Mathf.Clamp(audience, 0, 100);
         VTuberMood = Mathf.Clamp(VTuberMood, 0, 100);
+
+        //Achievement popup trigger
+        if(collectiblesCount == collectiblesMax)
+        {
+            AchievementPopup();
+        }
+
+        //stat ending cutscenes 
+        //low mood
+        if(VTuberMood == 0 && !statEndingPlaying)
+        {
+            statEndingPlaying = true;
+            LowMoodEnding(lowMood);
+        }
+
+        //low audience
+        if(audience == 0 && !statEndingPlaying)
+        {
+            statEndingPlaying = true;
+            LowAudienceEnding(lowAudience);
+        }
+
     }
+
     #region pause menu
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
     #endregion
 
-    
+    #region stats
     private void Audience()
     {
         if (audienceStatTimer > 0)//Countdown to 5 seconds
@@ -239,6 +272,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    #endregion
 
     #region Chat
     public void SpawnChatPopup()
@@ -278,6 +312,7 @@ public class GameManager : MonoBehaviour
         //    _popup.GetComponent<RectTransform>().anchoredPosition += Vector2.up * position;
         //}
     }
+
 
     private string SpawnMoodChatpopup()
     {
@@ -321,17 +356,17 @@ public class GameManager : MonoBehaviour
 
         if (audienceApproval >= 30)//High approval
         {
-            Debug.Log("Positive Messages");
+            //Debug.Log("Positive Messages");
             _message = highApprovalMessages.messages[Random.Range(0, highApprovalMessages.messages.Count)];
         }
         else if (audienceApproval >= -29 && audienceApproval <= 29)//Average approval
         {
-            Debug.Log("Neutral Messages");
+            //Debug.Log("Neutral Messages");
             _message = generalMessages.messages[Random.Range(0, generalMessages.messages.Count)];
         }
         else if (audienceApproval <= -30)//low approval
         {
-            Debug.Log("Negative Messages");
+            //Debug.Log("Negative Messages");
             _message = lowApprovalMessages.messages[Random.Range(0, lowApprovalMessages.messages.Count)];
         }
 
@@ -361,6 +396,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region collectables
     public void CollectibleCount()
     {
         collectibleText.text = collectiblesCount + "/" + collectiblesMax;
@@ -378,6 +414,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
+    #endregion
 
     #region Donations
     public void Donations()
@@ -429,6 +466,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region viewers
     public void ViewershipAdjust()
     {
         if (audience >= 80)
@@ -447,9 +485,69 @@ public class GameManager : MonoBehaviour
         float views = Random.Range((audience * audience * 0.95f), (audience * audience * 1.10f));
         return views;
     }
+    #endregion
 
     public void Speaking()
     {
         camView.position = new Vector3(camView.position.x, startingCam.y, 0f) + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 4, 0f);
     }
+
+    public void AchievementPopup()
+    {
+        if(triggerAchievement)
+        {
+            return;
+        }    
+        triggerAchievement = true;
+        achievementPopup.SetTrigger("achievement");
+    }
+
+
+    #region cutscene
+    public void StartCutscene()//play this to start cutscene
+    {
+        player.GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<VtuberDialogueSystem>().cutscenePlaying = true;
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+    }
+
+    public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        CutsceneManager.Instance.PlayCutscene(cutscene);
+    }
+
+    public void LowMoodEnding(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutCutsceneDialogue(cutscene.vTuberLines);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
+    }
+
+    public void LowAudienceEnding(CutsceneSequence cutscene)
+    {
+        StartCutscene();
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutCutsceneDialogue(cutscene.vTuberLines);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
+    }
+
+    public void EndCutscene()//play this once the cutscene ends
+    {
+        player.GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<VtuberDialogueSystem>().cutscenePlaying = false;
+    }
+
+    public void EndingCutsceneFinished()//send player back to menu
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    #endregion
 }
