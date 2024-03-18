@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
     public int collectiblesMax;
 
     [Header("Cutscenes")]
+    public CutsceneSequence introCutscene;
     public CutsceneSequence lowMood;
     public CutsceneSequence lowAudience;
     public CutsceneSequence trueEnding;
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
     {
         startingCam = camView.position;
         collectiblesMax = collectibleParent.childCount;
+        //PlayIntroCutscene(introCutscene);
     }
 
     // Update is called once per frame
@@ -509,6 +511,11 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerMovement>().enabled = false;
         GetComponent<VtuberDialogueSystem>().cutscenePlaying = true;
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+    }
+
+    public void PlayIntroCutscene(CutsceneSequence cutscene)
+    {
+        StartCutscene();
     }
 
     public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
