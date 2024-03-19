@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 	#endregion
 
 	#region INPUT PARAMETERS
-	private Vector2 _moveInput;
+	public Vector2 _moveInput;
 
 	public float LastPressedJumpTime { get; private set; }
 	public float LastPressedDashTime { get; private set; }
@@ -77,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private LayerMask _groundLayer;
 	#endregion
 
+	public bool cutscenePlaying = false;
+
     private void Awake()
 	{
 		RB = GetComponent<Rigidbody2D>();
@@ -91,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		if (cutscenePlaying)
+		{
+            GetComponentInChildren<Animator>().SetBool("Moving", false);
+            return;
+        }
+
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
@@ -102,31 +110,33 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		
+        _moveInput.x = Input.GetAxisRaw("Horizontal");
+        _moveInput.y = Input.GetAxisRaw("Vertical");
 
-		if (_moveInput.x != 0)
-			CheckDirectionToFace(_moveInput.x > 0);
+        if (_moveInput.x != 0)
+            CheckDirectionToFace(_moveInput.x > 0);
 
-		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
         {
-			OnJumpInput();
+            OnJumpInput();
         }
 
-		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
-		{
-			OnJumpUpInput();
-		}
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
+        {
+            OnJumpUpInput();
+        }
 
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
-		{
-			OnDashInput();
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
+        {
+            OnDashInput();
             GetComponentInChildren<Animator>().SetTrigger("GrabDash");
         }
-		#endregion
 
-		#region COLLISION CHECKS
-		if (!IsDashing && !IsJumping)
+        #endregion
+
+        #region COLLISION CHECKS
+        if (!IsDashing && !IsJumping)
 		{
 			//Ground Check
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)) //checks if set box overlaps with ground
@@ -296,6 +306,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
+		if (cutscenePlaying)
+			return;
 		//Handle Run
 		if (!IsDashing)
 		{
@@ -359,6 +371,8 @@ public class PlayerMovement : MonoBehaviour
     #region RUN METHODS
     private void Run(float lerpAmount)
 	{
+		if (cutscenePlaying)
+			return;
 		//Calculate the direction we want to move in and our desired velocity
 		float targetSpeed = _moveInput.x * Data.runMaxSpeed;
 		//We can reduce are control using Lerp() this smooths changes to are direction and speed
