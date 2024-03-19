@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
     public CutsceneSequence lowAudience;
     public CutsceneSequence trueEnding;
     public bool statEndingPlaying = false;
+    public bool cutscenePlaying = false;
 
     [Header("Telemetry")]
     public bool moodEnd = false;
@@ -190,6 +191,7 @@ public class GameManager : MonoBehaviour
             statEndingPlaying = true;
             LowAudienceEnding(lowAudience);
         }
+
 
     }
 
@@ -508,9 +510,11 @@ public class GameManager : MonoBehaviour
     #region cutscene
     public void StartCutscene()//play this to start cutscene
     {
-        player.GetComponent<PlayerMovement>().enabled = false;
+        //player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<PlayerMovement>()._moveInput = Vector2.zero;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        player.GetComponent<PlayerMovement>().cutscenePlaying = true;
         GetComponent<VtuberDialogueSystem>().cutscenePlaying = true;
-        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
     }
 
     public void PlayIntroCutscene(CutsceneSequence cutscene)
@@ -521,12 +525,14 @@ public class GameManager : MonoBehaviour
     public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
     {
         StartCutscene();
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         CutsceneManager.Instance.PlayCutscene(cutscene);
     }
 
     public void LowMoodEnding(CutsceneSequence cutscene)
     {
         StartCutscene();
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -538,6 +544,7 @@ public class GameManager : MonoBehaviour
     public void LowAudienceEnding(CutsceneSequence cutscene)
     {
         StartCutscene();
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -546,9 +553,10 @@ public class GameManager : MonoBehaviour
         dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
     }
 
-    public void EndCutscene()//play this once the cutscene ends
+    public void EndCutscene()//play this once the cutscene endss
     {
-        player.GetComponent<PlayerMovement>().enabled = true;
+        //player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<PlayerMovement>().cutscenePlaying = false;
         GetComponent<VtuberDialogueSystem>().cutscenePlaying = false;
     }
 
