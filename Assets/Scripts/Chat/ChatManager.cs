@@ -28,7 +28,7 @@ public class ChatManager : MonoBehaviour
             }
             else if (GameManager.Instance.audience >= 26 && GameManager.Instance.audience <= 50)//mid level audience
             {
-                float randTimer = Random.Range(1, 5);
+                float randTimer = Random.Range(2, 5);
                 chatSpawnTimer = randTimer;
                 GameManager.Instance.SpawnChatPopup();
             }

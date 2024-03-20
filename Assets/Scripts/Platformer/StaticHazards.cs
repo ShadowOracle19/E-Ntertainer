@@ -11,9 +11,6 @@ public class StaticHazards : MonoBehaviour
         {
             GameManager.Instance.Death();
 
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
         }
     }
 }

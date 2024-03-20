@@ -13,9 +13,6 @@ public class Killbox : MonoBehaviour
 
             GameManager.Instance.Death();
 
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
-            GameManager.Instance.SpawnChatPopup();
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5551897736572694475}
   - component: {fileID: 859896294607599842}
   - component: {fileID: 1156609662798816289}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 941978428306912469}
   - component: {fileID: 253256746150280164}
   - component: {fileID: 3380515447003295543}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,11 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 4728166952017349581}
-  - {fileID: 5797091530021922284}
-  - {fileID: 7656987204290963035}
-  - {fileID: 2651927847196743111}
-  - {fileID: 4428218050794382375}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 8713485502894948743}
   - component: {fileID: 8227714718446695608}
   - component: {fileID: 3320241041295784990}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 8124386744335589961}
   - component: {fileID: 8856260175110091011}
   - component: {fileID: 7180541292967022548}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 3677128802911184698}
   - component: {fileID: 6738514311506774853}
   - component: {fileID: 7384928717385526088}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowRY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 3858576297704222666}
   - component: {fileID: 4359384417120169755}
   - component: {fileID: 1431323251275575783}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: nose2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 4700807678192484319}
   - component: {fileID: 3890344757014510309}
   - component: {fileID: 7656987204290963035}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 972546183578868650}
   - component: {fileID: 8137379592601209939}
   - component: {fileID: 5180824434167300866}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 4860180437129509322}
   - component: {fileID: 8585981923465183236}
   - component: {fileID: 8184316857340156224}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 7817112784979673333}
   - component: {fileID: 7828777867147387835}
   - component: {fileID: 7439886338320718414}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 82356769301512527}
   - component: {fileID: 712735611419313870}
   - component: {fileID: 923818633553359435}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,8 +1100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 7895699006354542259}
-  - {fileID: 6958943758115819688}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 2164857508732910321}
   - component: {fileID: 5608970704342341527}
   - component: {fileID: 1538898339328227466}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 3014803467924103378}
   - component: {fileID: 5822328231126362203}
   - component: {fileID: 186742013521870255}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 6631789967765735119}
   - component: {fileID: 7032253513376213708}
   - component: {fileID: 4689546950467548041}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1457,7 @@ GameObject:
   - component: {fileID: 8792321583756942072}
   - component: {fileID: 5334935485907833903}
   - component: {fileID: 6322191165833100683}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamAngleZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 2516065390874082040}
   - component: {fileID: 7008155865298963984}
   - component: {fileID: 416838044887576133}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Param2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 6995977657780162790}
   - component: {fileID: 5654118898430752043}
   - component: {fileID: 4480895482135591152}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1699,7 +1699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4886395829028975619}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Drawables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 5862595142937031446}
   - component: {fileID: 7963976888032268507}
   - component: {fileID: 6017361530637342347}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 3952622234685587324}
   - component: {fileID: 2505426700269892672}
   - component: {fileID: 2459653554769985415}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamHairSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 3257809583240271991}
   - component: {fileID: 6806239133624947889}
   - component: {fileID: 5024905978890535037}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowRAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,7 +2013,7 @@ GameObject:
   - component: {fileID: 3784719197132684510}
   - component: {fileID: 2384264599266025812}
   - component: {fileID: 5582396548238015080}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 6124224024580407495}
   - component: {fileID: 3530392775751785150}
   - component: {fileID: 7810845459497928380}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2255,7 +2255,7 @@ GameObject:
   - component: {fileID: 5679602675393658085}
   - component: {fileID: 5626159781009046322}
   - component: {fileID: 4803861395775956888}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBreath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2316,7 +2316,7 @@ GameObject:
   - component: {fileID: 4046434353178701537}
   - component: {fileID: 3334554430317797859}
   - component: {fileID: 5294431689410786874}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamHairFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2375,7 +2375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3437859599213588194}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Parts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2427,7 +2427,7 @@ GameObject:
   - component: {fileID: 6639627924604275464}
   - component: {fileID: 2926981486316370292}
   - component: {fileID: 1569057467952264655}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 2392052377130937725}
   - component: {fileID: 1176412162409292510}
   - component: {fileID: 5362677637040385424}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2597,9 +2597,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 8335128705056056225}
-  - {fileID: 1156609662798816289}
-  - {fileID: 8373286293976721881}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 4971802286950895900}
   - component: {fileID: 6161741772154156853}
   - component: {fileID: 7579874750750954982}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowLForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2693,7 +2693,7 @@ GameObject:
   - component: {fileID: 2488425184787799646}
   - component: {fileID: 2798978106336408877}
   - component: {fileID: 8459363608202533373}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2813,7 +2813,7 @@ GameObject:
   - component: {fileID: 6843829558089546953}
   - component: {fileID: 3763692483109854513}
   - component: {fileID: 6067011809645968867}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeLSmile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 2944011285613873101}
   - component: {fileID: 8571380955179773880}
   - component: {fileID: 4464917681892001125}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBodyAngleY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2937,7 +2937,7 @@ GameObject:
   - component: {fileID: 7755748704943579104}
   - component: {fileID: 7604654572039325699}
   - component: {fileID: 2383380307221301406}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3059,7 +3059,7 @@ GameObject:
   - component: {fileID: 4936263946207602377}
   - component: {fileID: 9060533906206053775}
   - component: {fileID: 8613351063153624830}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3181,7 +3181,7 @@ GameObject:
   - component: {fileID: 9008761570477348986}
   - component: {fileID: 5086563869418900440}
   - component: {fileID: 7295659253774682746}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3386,7 +3386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Opacity: 1
-  _lastOpacity: 1
+  _lastOpacity: 0
   _isOverwrittenModelMultiplyColors: 0
   _isOverwrittenModelScreenColors: 0
   _modelMultiplyColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3412,7 +3412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967223d908bf07b4f90945995bdca68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maskTexture: {fileID: 11400000, guid: 16bf142754640ab4487bb625c30931fd, type: 2}
+  _maskTexture: {fileID: 0}
 --- !u!114 &8866643094737540123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3648,7 +3648,7 @@ GameObject:
   - component: {fileID: 1290112418543775060}
   - component: {fileID: 78107565513587974}
   - component: {fileID: 7695481188496745182}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: livie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3697,10 +3697,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 586821475547252901}
-  - {fileID: 2657784176841489445}
-  - {fileID: 8459363608202533373}
-  - {fileID: 4027051601590606272}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts:
   - {fileID: 0}
   - {fileID: 0}
@@ -3743,7 +3743,7 @@ GameObject:
   - component: {fileID: 5456850740517612574}
   - component: {fileID: 6871135738112600435}
   - component: {fileID: 1698935144127630259}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3864,7 +3864,7 @@ GameObject:
   - component: {fileID: 5269624533356198469}
   - component: {fileID: 3322297672706039134}
   - component: {fileID: 5305062784190379546}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3913,8 +3913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 8613351063153624830}
-  - {fileID: 6017361530637342347}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -3945,7 +3945,7 @@ GameObject:
   - component: {fileID: 3669473725761442341}
   - component: {fileID: 5479806691623889244}
   - component: {fileID: 5332666485206527605}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowLY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4008,7 +4008,7 @@ GameObject:
   - component: {fileID: 2912607993487959570}
   - component: {fileID: 1959186266607453907}
   - component: {fileID: 586821475547252901}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4130,7 +4130,7 @@ GameObject:
   - component: {fileID: 7685482714123011390}
   - component: {fileID: 8852562484082257622}
   - component: {fileID: 1090475588772716010}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4252,7 +4252,7 @@ GameObject:
   - component: {fileID: 5012066203821229695}
   - component: {fileID: 7538369705948249933}
   - component: {fileID: 781854305830615491}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 9159143796187380155}
   - component: {fileID: 1920820351719160877}
   - component: {fileID: 8373286293976721881}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4496,7 +4496,7 @@ GameObject:
   - component: {fileID: 4090759576625674305}
   - component: {fileID: 5625964202232053611}
   - component: {fileID: 8335128705056056225}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4616,7 +4616,7 @@ GameObject:
   - component: {fileID: 8549171795809954053}
   - component: {fileID: 7805246688852405187}
   - component: {fileID: 2391561760882335650}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeRSmile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4679,7 +4679,7 @@ GameObject:
   - component: {fileID: 2655548647785832995}
   - component: {fileID: 6752407134445810853}
   - component: {fileID: 2657784176841489445}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4799,7 +4799,7 @@ GameObject:
   - component: {fileID: 2105575263337233468}
   - component: {fileID: 8139267508098773870}
   - component: {fileID: 1258412222645893233}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Param
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 7054448341673690976}
   - component: {fileID: 1784878662407824032}
   - component: {fileID: 2139747984285031269}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4982,7 +4982,7 @@ GameObject:
   - component: {fileID: 313949390735549318}
   - component: {fileID: 1964940746924605834}
   - component: {fileID: 530955055423382961}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowRForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5044,7 +5044,7 @@ GameObject:
   - component: {fileID: 5054200437386940501}
   - component: {fileID: 1156048151875248263}
   - component: {fileID: 3171177883590259862}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5125,7 +5125,7 @@ GameObject:
   - component: {fileID: 2985598879064178920}
   - component: {fileID: 3440082173606074449}
   - component: {fileID: 7895699006354542259}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 2227383244471345483}
   - component: {fileID: 474617553357413699}
   - component: {fileID: 2647871740451621364}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamAngleY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5307,7 +5307,7 @@ GameObject:
   - component: {fileID: 7221861670296951717}
   - component: {fileID: 6561930918746467618}
   - component: {fileID: 4736346459203640227}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5356,13 +5356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 5582396548238015080}
-  - {fileID: 5579054073835423991}
-  - {fileID: 2139747984285031269}
-  - {fileID: 781854305830615491}
-  - {fileID: 7810845459497928380}
-  - {fileID: 4689546950467548041}
-  - {fileID: 7295659253774682746}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -5395,7 +5395,7 @@ GameObject:
   - component: {fileID: 2238589197236441565}
   - component: {fileID: 299176130922701327}
   - component: {fileID: 4027051601590606272}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5515,7 +5515,7 @@ GameObject:
   - component: {fileID: 7260773786864860048}
   - component: {fileID: 4288355601155427536}
   - component: {fileID: 3083677204962509414}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamAngleX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5576,7 +5576,7 @@ GameObject:
   - component: {fileID: 6756371442177700215}
   - component: {fileID: 1356137528366541507}
   - component: {fileID: 6555013531661359090}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBodyAngleZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5637,7 +5637,7 @@ GameObject:
   - component: {fileID: 4941812450540846191}
   - component: {fileID: 2851111671361732840}
   - component: {fileID: 8127862263817472088}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamHairBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5698,7 +5698,7 @@ GameObject:
   - component: {fileID: 5897373580054192890}
   - component: {fileID: 570808583096268539}
   - component: {fileID: 2484111938744750242}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeROpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5760,7 +5760,7 @@ GameObject:
   - component: {fileID: 2239328657050614282}
   - component: {fileID: 5593708036455489046}
   - component: {fileID: 626001511335194872}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: livie2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5842,7 +5842,7 @@ GameObject:
   - component: {fileID: 8680353013217501401}
   - component: {fileID: 3829309912581913553}
   - component: {fileID: 8940758925358389100}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5891,7 +5891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 3320241041295784990}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -5923,7 +5923,7 @@ GameObject:
   - component: {fileID: 9208906108448859549}
   - component: {fileID: 1826901007309021686}
   - component: {fileID: 8608667193948965452}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5972,7 +5972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 4346175982271062476}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -6001,7 +6001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 71960835470126981}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Parameters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6065,7 +6065,7 @@ GameObject:
   - component: {fileID: 8363746009701901673}
   - component: {fileID: 2608583944034301152}
   - component: {fileID: 5579054073835423991}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6187,7 +6187,7 @@ GameObject:
   - component: {fileID: 6581785816744419796}
   - component: {fileID: 7321358220701249836}
   - component: {fileID: 1182179105324006843}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6307,7 +6307,7 @@ GameObject:
   - component: {fileID: 8466656228064738615}
   - component: {fileID: 39507394592967009}
   - component: {fileID: 1555677349420874702}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowLX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6370,7 +6370,7 @@ GameObject:
   - component: {fileID: 8829088051498802329}
   - component: {fileID: 2764069068847683367}
   - component: {fileID: 2651927847196743111}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6492,7 +6492,7 @@ GameObject:
   - component: {fileID: 6502834205811336446}
   - component: {fileID: 8932439204991356445}
   - component: {fileID: 5797091530021922284}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6614,7 +6614,7 @@ GameObject:
   - component: {fileID: 5770810420077758856}
   - component: {fileID: 123363664293715971}
   - component: {fileID: 4346175982271062476}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: head2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6736,7 +6736,7 @@ GameObject:
   - component: {fileID: 1263823975406542056}
   - component: {fileID: 7045715923631597661}
   - component: {fileID: 4728166952017349581}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6858,7 +6858,7 @@ GameObject:
   - component: {fileID: 3141131011649192267}
   - component: {fileID: 3780520767597604894}
   - component: {fileID: 4428218050794382375}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6978,7 +6978,7 @@ GameObject:
   - component: {fileID: 384903886803264847}
   - component: {fileID: 2585303185017464533}
   - component: {fileID: 2733454652090125929}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeLOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7040,7 +7040,7 @@ GameObject:
   - component: {fileID: 7145894044443027735}
   - component: {fileID: 9068217725709511800}
   - component: {fileID: 7441110004747697265}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: livie3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7119,7 +7119,7 @@ GameObject:
   - component: {fileID: 5855502009146217337}
   - component: {fileID: 7720733450303748925}
   - component: {fileID: 8120002698391644890}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamMouthForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7181,7 +7181,7 @@ GameObject:
   - component: {fileID: 3996738884502383205}
   - component: {fileID: 4875698182817027770}
   - component: {fileID: 2850557299538846228}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Part3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7230,13 +7230,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 1090475588772716010}
-  - {fileID: 4480895482135591152}
-  - {fileID: 1698935144127630259}
-  - {fileID: 1569057467952264655}
-  - {fileID: 1182179105324006843}
-  - {fileID: 2383380307221301406}
-  - {fileID: 1538898339328227466}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -7268,7 +7268,7 @@ GameObject:
   - component: {fileID: 3804052376991095769}
   - component: {fileID: 6145008992607632387}
   - component: {fileID: 6986613728188316159}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: brows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7317,8 +7317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 8184316857340156224}
-  - {fileID: 7180541292967022548}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -7349,7 +7349,7 @@ GameObject:
   - component: {fileID: 8143895639995202634}
   - component: {fileID: 1301284075337934645}
   - component: {fileID: 62491308495489470}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowRX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7410,7 +7410,7 @@ GameObject:
   - component: {fileID: 2986488580033878481}
   - component: {fileID: 8868663696494122093}
   - component: {fileID: 8482899513910214622}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeBallY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7471,7 +7471,7 @@ GameObject:
   - component: {fileID: 7293870721082829679}
   - component: {fileID: 121917042367274196}
   - component: {fileID: 6848943012538357052}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamCheek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7533,7 +7533,7 @@ GameObject:
   - component: {fileID: 1795616813722907992}
   - component: {fileID: 4306222284183761061}
   - component: {fileID: 7382243477493055543}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7582,7 +7582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 1431323251275575783}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -7613,7 +7613,7 @@ GameObject:
   - component: {fileID: 1751543660618128452}
   - component: {fileID: 4858725772758411184}
   - component: {fileID: 8012650888870027033}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamMouthOpenY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7674,7 +7674,7 @@ GameObject:
   - component: {fileID: 1340940911014659801}
   - component: {fileID: 5711733914627429623}
   - component: {fileID: 8460240115626453109}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamEyeBallX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7735,7 +7735,7 @@ GameObject:
   - component: {fileID: 4769410365633213434}
   - component: {fileID: 4607630946883343329}
   - component: {fileID: 6138155360844046203}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBodyAngleX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7798,7 +7798,7 @@ GameObject:
   - component: {fileID: 9068465497970591213}
   - component: {fileID: 237853812737475079}
   - component: {fileID: 6958943758115819688}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ArtMesh18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7918,7 +7918,7 @@ GameObject:
   - component: {fileID: 5161090872037109817}
   - component: {fileID: 4490420678605919637}
   - component: {fileID: 6376772560369328725}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ParamBrowLAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

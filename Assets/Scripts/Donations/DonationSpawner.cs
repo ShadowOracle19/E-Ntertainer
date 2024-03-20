@@ -34,7 +34,7 @@ public class DonationSpawner : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time < 10)
+            if (time < 5)
             {
                 dCanvas.alpha += Time.deltaTime; //transition-in animation
             }

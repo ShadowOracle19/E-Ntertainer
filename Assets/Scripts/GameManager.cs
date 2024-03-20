@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public ChatMessage highMoodMessages;
     public ChatMessage highAudienceMessages;
     public ChatMessage lowAudienceMessages;
+    public ChatMessage deathMessages;
     private float audienceStatTimer = 3;
     public Color currentColor;
     public Color lMoodColor;
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
     public Color lAudColor;
     public Color hAudColor;
     public Color defaultColor;
+    public Color deathColor;
 
     [Header("VTuber Dialogue")]
     public VtuberDialogues dialogues;
@@ -362,13 +364,27 @@ public class GameManager : MonoBehaviour
 
         return _message;
     }
+
+    void spawnDeathChat()
+    {
+        GameObject popup = Instantiate(chatPopupPrefab, chatpopupParent);
+
+        string _username = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
+
+        string _message = deathMessages.messages[Random.Range(0, deathMessages.messages.Count)];
+
+        popup.GetComponent<ChatPopup>().message.text = "<#" + ColorUtility.ToHtmlStringRGBA(deathColor) + ">" + _username + ":</color> " + _message;
+        popup.GetComponent<RectTransform>().SetAsFirstSibling();
+
+        chatPopups.Add(popup);
+    }
     #endregion
 
     #region Death Respawn
     public void Death()
     {
         deathAudioSource.Play();
-        audienceApproval -= 4f;
+        audienceApproval -= 5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
         TelemetryLogger.Log(this, "Death", player.transform.position);
@@ -378,6 +394,11 @@ public class GameManager : MonoBehaviour
         }
         dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.death[Random.Range(0, dialogues.death.Count)]);
         dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
+
+        for(int count = 0; count < Random.Range(2,4) ; count++)
+        {
+            spawnDeathChat();
+        }
     }
     public void Respawn()
     {
@@ -423,7 +444,7 @@ public class GameManager : MonoBehaviour
                 HighApprovalDonations();
             }
             donationOn = true;
-            donationTime = ((Random.Range(10, 30) * 50) / audience); //randomly generates a window in which donations show up. higher audience = more frequent donations
+            donationTime = ((Random.Range(15, 30) * 50) / audience); //randomly generates a window in which donations show up. higher audience = more frequent donations
         }
     }
 
