@@ -16,11 +16,69 @@ MonoBehaviour:
   lines:
   - characterName: Livie
     textColor: {r: 0, g: 0, b: 0, a: 0}
-    text: Damn game is over
+    text: Awwww! This game was so cute honestly, I had so much fun! I hope you all
+      did too~
   - characterName: Livie
     textColor: {r: 0, g: 0, b: 0, a: 0}
-    text: Signing off heartbeats
+    text: "I think I\u2019m gonna end stream now, it\u2019s pretty late and I should
+      get at least some sleep, haha. Let\u2019s see who we could raid\u2026 oh, CrescentLune
+      is streaming! Say hi for me, guys!"
   - characterName: Livie
     textColor: {r: 0, g: 0, b: 0, a: 0}
-    text: BYE BYE!
+    text: "Okay, thanks so much for joining tonight, Heartbeats! I\u2019ll see you
+      all later! Remember to smile~"
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "I\u2019m glad that stream went well. I don\u2019t know if I could\u2019ve
+      handled another disaster\u2026"
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "\u2026It went well, right? I had a good time, but what about my viewers?
+      Was it better than last time? Was it worse?!"
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "No, calm down, Olivia. Just check the analytics. Then you\u2019ll know."
+  - characterName: Clock
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "4:00 AM\u2026 5:00 AM\u2026 6:00 AM."
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "\u2026Sleep. I need to sleep."
+  - characterName: Olivia?
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: You think this makes you any less of a failure?
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: ...
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: ...
+  - characterName: Olivia?
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "They don\u2019t really know you. And they\u2019ll leave as soon as they
+      get bored."
+  - characterName: Olivia?
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: Or as soon as you let your mask slip.
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: I know...
+  - characterName: ???
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "That\u2019s not true, Livie!"
+  - characterName: Heartbeats
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "Livie, don\u2019t listen to her! We love you for who you are!"
+  - characterName: Heartbeats
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "Your streams bring so many people joy! So don\u2019t give up!"
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: "\u2026That\u2019s right\u2026"
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: That's right! They love me!
+  - characterName: Olivia
+    textColor: {r: 0, g: 0, b: 0, a: 0}
+    text: ...They love me, right...?
   vTuberLines: []

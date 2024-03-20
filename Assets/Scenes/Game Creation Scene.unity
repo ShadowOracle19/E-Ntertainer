@@ -1283,6 +1283,7 @@ MonoBehaviour:
   lowAudience: {fileID: 11400000, guid: 84d4248a1527f704fa20d46125c2c060, type: 2}
   trueEnding: {fileID: 11400000, guid: f7c0570ca837c19468fee5a4bc53bdfb, type: 2}
   statEndingPlaying: 0
+  cutscenePlaying: 0
   moodEnd: 0
   audienceEnd: 0
 --- !u!4 &80160519
@@ -100632,7 +100633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1778580838
 RectTransform:
   m_ObjectHideFlags: 0
