@@ -16,7 +16,7 @@ public class VtuberDialogueSystem : MonoBehaviour
 
     public IEnumerator vtuberTalking;
     public Coroutine thisCoroutine;
-
+    public bool cutscenePlaying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,8 @@ public class VtuberDialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DialogueSpawner();
+        if(!cutscenePlaying)
+            DialogueSpawner();
 
     }
 
@@ -39,80 +40,34 @@ public class VtuberDialogueSystem : MonoBehaviour
         }
         else
         {
-            #region dialogue selector
-            //pick first dialogue
-            int rand = Random.Range(1, 4);
+            DialogueSelector(); 
 
-            //string message1 = "";
-            switch (rand)
-            {
-                case 1:
-                    message1 = MoodDialogue();
-                    break;
-                case 2:
-                    message1 = AudienceDialogue();
-                    break;
-                case 3:
-                    message1 = ApprovalDialogue();
-                    break;
-                default:
-                    break;
-            }
-
-            //pick second dialogue
-            rand = Random.Range(1, 4);
-
-            //string message2 = "";
-            switch (rand)
-            {
-                case 1:
-                    message2 = MoodDialogue();
-                    if (message1 == message2) message2 = MoodDialogue();
-                    break;
-                case 2:
-                    message2 = AudienceDialogue();
-                    if (message1 == message2) message2 = AudienceDialogue();
-                    break;
-                case 3:
-                    message2 = ApprovalDialogue();
-                    if (message1 == message2) message2 = ApprovalDialogue();
-                    break;
-                default:
-                    break;
-            }
-            #endregion
-
-            vtuberTalking = typeOutDialogue(message1, message2);
+            vtuberTalking = typeOutDialogue();
 
             thisCoroutine = StartCoroutine(vtuberTalking); //play first dialogue
+
+            
         }
     }
 
-
     //types out random spawning Dialogue
-    IEnumerator typeOutDialogue(string dialogue1, string dialogue2)
+    IEnumerator typeOutDialogue()
     {
-        Debug.Log("How many times is this run");
         dialogueActive = true;
         GameManager.Instance.dialogueText.gameObject.SetActive(true);
-        GameManager.Instance.dialogueText.text = ""; //clear dialogue text
+        GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
 
         //GameManager.Instance.livie2d.SetBool("isTalking", true);
         Debug.Log("Hi");
         GameManager.Instance.livie2d.SetTrigger("Talking");
 
         //type out each letter and make the vtuber sound effect play
-        foreach (char letter in dialogue1)
+        foreach(char letter in message1)
         {
-            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
-            dialogueVoice--;
-            if (dialogueVoice == 0)
-            {
-                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-                GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 4;
-            }
+
+            DialogueVoice();
+
             yield return new WaitForSeconds(timeWaited);
         }
 
@@ -120,34 +75,23 @@ public class VtuberDialogueSystem : MonoBehaviour
 
         yield return new WaitForSeconds(dialogueActiveTime);
 
-        //GameManager.Instance.livie2d.SetBool("isTalking", true);
         GameManager.Instance.livie2d.SetTrigger("Talking");
-        Debug.Log("It me");
-
-        GameManager.Instance.dialogueText.text = ""; //clear dialogue text
+        GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
 
         //type out each letter and make the vtuber sound effect play for second dialogue
-        foreach (char letter in dialogue2)
+        foreach (char letter in message2)
         {
-            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
-            dialogueVoice--;
-            if (dialogueVoice == 0)
-            {
-                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-                GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 4;
-            }
+
+            DialogueVoice();
+
             yield return new WaitForSeconds(timeWaited);
         }
 
         //GameManager.Instance.livie2d.SetBool("isTalking", false);
         yield return new WaitForSeconds(dialogueActiveTime);
 
-        GameManager.Instance.dialogueText.gameObject.SetActive(false);
-        GameManager.Instance.dialogueText.text = ""; //clear dialogue text
-        dialogueActive = false;
-        dialogueSpawnTimer = dialogueSpawnTimerMax;//reset timer
+        EndDialogue();
         yield return null; 
     }
 
@@ -155,33 +99,116 @@ public class VtuberDialogueSystem : MonoBehaviour
     //This should override text natrually generated from this script
     public IEnumerator typeOutSpecificDialogue(string dialogue)
     {
-        //if (dialogueActive) StopCoroutine(vtuberTalking);
         dialogueActive = true;
         GameManager.Instance.dialogueText.gameObject.SetActive(true);
-        GameManager.Instance.dialogueText.text = ""; //clear dialogue text
+        GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
 
         //type out each letter and make the vtuber sound effect play
         foreach (char letter in dialogue)
         {
-            GameManager.Instance.Speaking();
             GameManager.Instance.dialogueText.text += letter.ToString();
-            dialogueVoice--;
-            if (dialogueVoice == 0)
-            {
-                GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
-                GameManager.Instance.VTuberSpeakAudioSource.Play();
-                dialogueVoice = 4;
-            }
+
+            DialogueVoice();
+
             yield return new WaitForSeconds(timeWaited);
         }
 
         yield return new WaitForSeconds(dialogueActiveTime);
 
+        EndDialogue();
+        yield return null;
+    }
+
+
+    //takes an array then writes out the dialogue until the array finishes
+    public IEnumerator typeOutCutsceneDialogue(string[] dialogue)
+    {
+        dialogueActive = true;
+        GameManager.Instance.dialogueText.gameObject.SetActive(true);
+        GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
+
+        for (int i = 0; i < dialogue.Length; i++)//iterate through the string array
+        {
+            //type out each letter and make the vtuber sound effect play
+            foreach (char letter in dialogue[i])
+            {
+                GameManager.Instance.dialogueText.text += letter.ToString();
+
+                DialogueVoice();
+                
+                yield return new WaitForSeconds(timeWaited);
+            }
+            yield return new WaitForSeconds(dialogueActiveTime);
+            GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
+        }
+
+        EndDialogue();
+        GameManager.Instance.EndingCutsceneFinished();
+        yield return null;
+    }
+
+    private void EndDialogue()
+    {
         GameManager.Instance.dialogueText.gameObject.SetActive(false);
-        GameManager.Instance.dialogueText.text = ""; //clear dialogue text
+        GameManager.Instance.dialogueText.text = string.Empty; //clear dialogue text
         dialogueActive = false;
         dialogueSpawnTimer = dialogueSpawnTimerMax;//reset timer
-        yield return null;
+    }
+
+    private void DialogueVoice()
+    {
+        GameManager.Instance.Speaking();
+        dialogueVoice--;
+        if (dialogueVoice == 0)
+        {
+            GameManager.Instance.VTuberSpeakAudioSource.pitch = Random.Range(1.0f, 1.5f);//variable pitch
+            GameManager.Instance.VTuberSpeakAudioSource.Play();
+            dialogueVoice = 4;
+        }
+    }
+
+    private void DialogueSelector()
+    {
+        //pick first dialogue
+        int rand = Random.Range(1, 4);
+
+        //string message1 = "";
+        switch (rand)
+        {
+            case 1:
+                message1 = MoodDialogue();
+                break;
+            case 2:
+                message1 = AudienceDialogue();
+                break;
+            case 3:
+                message1 = ApprovalDialogue();
+                break;
+            default:
+                break;
+        }
+
+        //pick second dialogue
+        rand = Random.Range(1, 4);
+
+        //string message2 = "";
+        switch (rand)
+        {
+            case 1:
+                message2 = MoodDialogue();
+                if (message1 == message2) message2 = MoodDialogue();
+                break;
+            case 2:
+                message2 = AudienceDialogue();
+                if (message1 == message2) message2 = AudienceDialogue();
+                break;
+            case 3:
+                message2 = ApprovalDialogue();
+                if (message1 == message2) message2 = ApprovalDialogue();
+                break;
+            default:
+                break;
+        }
     }
 
     private string MoodDialogue()

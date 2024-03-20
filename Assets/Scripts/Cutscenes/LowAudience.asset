@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3ae1be5b41e9345943e6713b651d5f, type: 3}
+  m_Name: LowAudience
+  m_EditorClassIdentifier: 
+  animation: {fileID: 0}
+  lines: []
+  vTuberLines:
+  - "Oh, uh\u2026 we don\u2019t have many Heartbeats with us\u2026"
+  - "Actually, uh\u2026 no Heartbeats."
+  - "\u2026\u2026\u2026."
+  - Maybe someone will come back? I just gotta give it time.
+  - "\u2026\u2026\u2026\u2026\u2026"
+  - "\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026"
+  - "\u2026\u2026nobody\u2019s coming."
+  - Nobody cares.
+  - Why did I expect anyone to care?
+  - "\u2026\u2026\u2026."

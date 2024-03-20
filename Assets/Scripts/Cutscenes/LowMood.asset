@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3ae1be5b41e9345943e6713b651d5f, type: 3}
+  m_Name: LowMood
+  m_EditorClassIdentifier: 
+  animation: {fileID: 0}
+  lines: []
+  vTuberLines:
+  - "Ok, guys? I\u2019ve been trying to ignore all the toxicity in chat, but y\u2019all
+    just keep GOING"
+  - "This is just a stupid game, I\u2019m trying my best, and you all just HAVE to
+    keep pointing out how much I fucking suck"
+  - "I\u2019m putting myself out there, I am providing entertainment for you and
+    all I\u2019m getting in return is insults and\u2013"
+  - "Oh, wow, guys, yeah, wow I\u2019m so CRINGE for BEING UPSET\u2013"
+  - "FUCK all of you, why do I TRY to do NICE THINGS for you when you\u2019re just
+    going to WALK ALL OVER ME?!?"
+  - You know what?
+  - NONE OF YOU CARE ABOUT ME!
+  - FUCK YOU!
+  - "I DON\u2019T NEED YOU!"
+  - '*inhale*'
+  - '*exhale*'
+  - "I\u2019m done."
