@@ -15,6 +15,13 @@ MonoBehaviour:
   animation: {fileID: 0}
   lines: []
   vTuberLines:
-  - Damn no one watched
-  - Guess I should just end tonight
-  - I hate streaming
+  - "Oh, uh\u2026 we don\u2019t have many Heartbeats with us\u2026"
+  - "Actually, uh\u2026 no Heartbeats."
+  - "\u2026\u2026\u2026."
+  - Maybe someone will come back? I just gotta give it time.
+  - "\u2026\u2026\u2026\u2026\u2026"
+  - "\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026"
+  - "\u2026\u2026nobody\u2019s coming."
+  - Nobody cares.
+  - Why did I expect anyone to care?
+  - "\u2026\u2026\u2026."
