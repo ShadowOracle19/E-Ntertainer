@@ -7,19 +7,12 @@ public class CameraMove : MonoBehaviour
     public Transform spawnPoint;
     public bool FirstEntered = true;
 
-    [Header("Tutorial stuff")]
-    public bool hasTutorial = false;
-    public GameObject tutorialGal;
 
     private void Start()
     {
         GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
 
 
     private void OnTriggerStay2D(Collider2D collision)
