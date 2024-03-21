@@ -34,7 +34,6 @@ public class EndLevel : MonoBehaviour
                 TelemetryLogger.Log(this, "Uncollected Collectible", coin.position);
             }
             
-
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;
             GameManager.Instance.audienceApproval += 1;
             //SceneManager.LoadScene("Menu");

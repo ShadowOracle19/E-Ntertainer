@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public Sprite VTuberNegative;
     //Live2D stuff
     public Animator livie2d;
+    public float idleTime = 10;
 
     //only variables relating to the platformer should go here
     [Header("Platformer")]
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour
         Donations();
 
         audienceApproval -= Time.deltaTime / 5;
+        idleTime -= Time.deltaTime;
 
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
@@ -205,7 +207,12 @@ public class GameManager : MonoBehaviour
             LowAudienceEnding(lowAudience);
         }
 
-
+        if (idleTime <= 0)
+        {
+            livie2d.SetInteger("idle choose", Random.Range(1, 4));
+            livie2d.SetTrigger("idle trigger");
+            idleTime = Random.Range(8, 20);
+        }
     }
 
     #region pause menu
@@ -282,15 +289,19 @@ public class GameManager : MonoBehaviour
     {
         if (mood >= 70)//High mood
         {
-            VTuberImage.sprite = VTuberPositive;
+            //VTuberImage.sprite = VTuberPositive;
+            livie2d.SetBool("high mood", true);
         }
         else if (mood >= 31 && mood <= 69)//Average mood
         {
-            VTuberImage.sprite = VTuberDefault;
+            livie2d.SetBool("high mood", false);
+            livie2d.SetBool("low mood", false);
+            //VTuberImage.sprite = VTuberDefault;
         }
         else if (mood <= 30)//low mood
         {
-            VTuberImage.sprite = VTuberNegative;
+            livie2d.SetBool("low mood", true);
+            //VTuberImage.sprite = VTuberNegative;
         }
 
     }
@@ -423,6 +434,7 @@ public class GameManager : MonoBehaviour
         audienceApproval -= 5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
+        livie2d.SetTrigger("death");
         TelemetryLogger.Log(this, "Death", player.transform.position);
         if (dialogueSystem.dialogueActive)
         {
@@ -456,9 +468,9 @@ public class GameManager : MonoBehaviour
         collectibleAudioSource.Play();
         if(!dialogueSystem.dialogueActive)
         {
+            GameManager.Instance.livie2d.SetTrigger("sparkle");
             dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.collectible[Random.Range(0, dialogues.collectible.Count)]);
             dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
-
         }
     }
     #endregion
@@ -534,10 +546,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void Speaking()
+    /*public void Speaking()
     {
         camView.position = new Vector3(camView.position.x, startingCam.y, 0f) + new Vector3(0f, Mathf.Sin(Time.time * 15f) * 4, 0f);
-    }
+    }*/
 
     public void AchievementPopup()
     {
@@ -574,8 +586,10 @@ public class GameManager : MonoBehaviour
 
     public void LowMoodEnding(CutsceneSequence cutscene)
     {
+        livie2d.SetTrigger("mood cutscene");
+        livie2d.SetBool("inCutscene", true);
         StartCutscene();
-        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -586,8 +600,10 @@ public class GameManager : MonoBehaviour
 
     public void LowAudienceEnding(CutsceneSequence cutscene)
     {
+        livie2d.SetTrigger("audience cutscene");
+        livie2d.SetBool("inCutscene", true);
         StartCutscene();
-        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);

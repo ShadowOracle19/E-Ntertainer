@@ -1,0 +1,27 @@
+{
+	"Version": 3,
+	"Meta": {
+		"Duration": 3.6,
+		"Fps": 30.0,
+		"Loop": true,
+		"AreBeziersRestricted": true,
+		"CurveCount": 1,
+		"TotalSegmentCount": 1,
+		"TotalPointCount": 2,
+		"UserDataCount": 0,
+		"TotalUserDataSize": 0
+	},
+	"Curves": [
+		{
+			"Target": "PartOpacity",
+			"Id": "stressed",
+			"Segments": [
+				0,
+				0,
+				0,
+				3.6,
+				0
+			]
+		}
+	]
+}

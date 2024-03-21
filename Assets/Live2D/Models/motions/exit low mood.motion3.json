@@ -1,0 +1,49 @@
+{
+	"Version": 3,
+	"Meta": {
+		"Duration": 3.6,
+		"Fps": 30.0,
+		"Loop": true,
+		"AreBeziersRestricted": true,
+		"CurveCount": 2,
+		"TotalSegmentCount": 3,
+		"TotalPointCount": 9,
+		"UserDataCount": 0,
+		"TotalUserDataSize": 0
+	},
+	"Curves": [
+		{
+			"Target": "Parameter",
+			"Id": "ParamMouthForm",
+			"Segments": [
+				0,
+				-1,
+				1,
+				0.367,
+				-1,
+				0.733,
+				-1,
+				1.1,
+				-1,
+				1,
+				1.933,
+				-1,
+				2.767,
+				0,
+				3.6,
+				0
+			]
+		},
+		{
+			"Target": "PartOpacity",
+			"Id": "stressed",
+			"Segments": [
+				0,
+				0,
+				0,
+				3.6,
+				0
+			]
+		}
+	]
+}
