@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public GameObject camera;
 
     [Header("Chat")]
+    public ChatManager chatManager;
     public ChatUsername usernames;
     public ChatMessage highApprovalMessages;
     public ChatMessage generalMessages;
@@ -204,6 +205,7 @@ public class GameManager : MonoBehaviour
         if(audience == 0 && !statEndingPlaying)
         {
             statEndingPlaying = true;
+            chatManager.enabled = false;
             LowAudienceEnding(lowAudience);
         }
 
