@@ -22,19 +22,19 @@ public class ChatManager : MonoBehaviour
         {
             if(GameManager.Instance.audience <= 25)//low level audience
             {
-                float randTimer = Random.Range(6, 15);
+                float randTimer = Random.Range(8, 20);
                 chatSpawnTimer = randTimer;
                 GameManager.Instance.SpawnChatPopup();
             }
-            else if (GameManager.Instance.audience >= 26 && GameManager.Instance.audience <= 50)//mid level audience
+            else if (GameManager.Instance.audience >= 26 && GameManager.Instance.audience <= 69)//mid level audience
             {
-                float randTimer = Random.Range(2, 5);
+                float randTimer = Random.Range(2, 6);
                 chatSpawnTimer = randTimer;
                 GameManager.Instance.SpawnChatPopup();
             }
-            else if (GameManager.Instance.audience >= 51)//high level audience
+            else if (GameManager.Instance.audience >= 70)//high level audience
             {
-                float randTimer = Random.Range(0.1f, 0.5f);
+                float randTimer = Random.Range(0.05f, 0.3f);
                 chatSpawnTimer = randTimer;
                 GameManager.Instance.SpawnChatPopup();
             }

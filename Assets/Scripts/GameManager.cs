@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour
         //plays out donations
         Donations();
 
-        audienceApproval -= Time.deltaTime / 5;
+        audienceApproval -= Time.deltaTime / 8;
         idleTime -= Time.deltaTime;
 
         //rebuild vertical layout to avoid spawning messages incorrectly
@@ -239,7 +239,7 @@ public class GameManager : MonoBehaviour
         else
         {
             audienceStatTimer = 4;
-            if (audienceApproval >= 30)//High approval
+            if (audienceApproval >= 20)//High approval
             {
                 Debug.Log("High");
                 audience += 1;
@@ -253,17 +253,18 @@ public class GameManager : MonoBehaviour
                 audience -= 1;
                 //}
             }
-            else if (audienceApproval <= -30)//low approval
+            else if (audienceApproval <= -15)//low approval
             {
                 Debug.Log("Low");
                 audience += 1;
             }
 
-            if (audience <= 1 && audienceEnd == false)
+            /*if (audience <= 1 && audienceEnd == false)
             {
                 audienceEnd = true;
                 TelemetryLogger.Log(this, "Audience Ending Achieved");
             }
+            */
 
             if (audience <= 30)
             {
@@ -278,11 +279,12 @@ public class GameManager : MonoBehaviour
     private void Mood()
     {
         VTuberMood += ((audienceApproval * audience) / 3000) * Time.deltaTime;
-        if (VTuberMood <= 1 && moodEnd == false)
+        /*if (VTuberMood <= 1 && moodEnd == false)
         {
             moodEnd = true;
             TelemetryLogger.Log(this, "Mood Ending Achieved");
         }
+        */
     }
 
     public void VTuberEmotionSwitch(float mood)
@@ -589,6 +591,7 @@ public class GameManager : MonoBehaviour
         livie2d.SetTrigger("mood cutscene");
         livie2d.SetBool("inCutscene", true);
         StartCutscene();
+        TelemetryLogger.Log(this, "Mood Ending Achieved");
         //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
@@ -603,6 +606,7 @@ public class GameManager : MonoBehaviour
         livie2d.SetTrigger("audience cutscene");
         livie2d.SetBool("inCutscene", true);
         StartCutscene();
+        TelemetryLogger.Log(this, "Audience Ending Achieved");
         //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
