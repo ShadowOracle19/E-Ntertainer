@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             OnJumpUpInput();
         }
 
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.RightShift))
         {
             OnDashInput();
             GetComponentInChildren<Animator>().SetTrigger("GrabDash");

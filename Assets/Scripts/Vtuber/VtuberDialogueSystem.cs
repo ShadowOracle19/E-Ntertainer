@@ -69,7 +69,7 @@ public class VtuberDialogueSystem : MonoBehaviour
             yield return new WaitForSeconds(timeWaited);
         }
 
-        Debug.Log("Hi");
+        //Debug.Log("Hi");
         GameManager.Instance.livie2d.SetBool("speaking", false);
 
         yield return new WaitForSeconds(dialogueActiveTime);
@@ -259,17 +259,17 @@ public class VtuberDialogueSystem : MonoBehaviour
 
         if (GameManager.Instance.audienceApproval >= 30)//High approval
         {
-            Debug.Log("Positive Messages");
+            //Debug.Log("Positive Messages");
             _message = GameManager.Instance.dialogues.highApproval[Random.Range(0, GameManager.Instance.dialogues.highApproval.Count)];
         }
         else if (GameManager.Instance.audienceApproval >= -29 && GameManager.Instance.audienceApproval <= 29)//general
         {
-            Debug.Log("Neutral Messages");
+            //Debug.Log("Neutral Messages");
             _message = GameManager.Instance.dialogues.general[Random.Range(0, GameManager.Instance.dialogues.general.Count)];
         }
         else if (GameManager.Instance.audienceApproval <= -30)//low approval
         {
-            Debug.Log("Negative Messages");
+            //Debug.Log("Negative Messages");
             _message = GameManager.Instance.dialogues.lowApproval[Random.Range(0, GameManager.Instance.dialogues.lowApproval.Count)];
         }
 

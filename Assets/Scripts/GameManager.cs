@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Pause Menu")]
     public GameObject pauseMenu;
-    private bool gamePaused = false;
+    public bool gamePaused = false;
 
     [Header("Collectible")]
     public TextMeshProUGUI collectibleText;
@@ -132,9 +132,9 @@ public class GameManager : MonoBehaviour
     public bool statEndingPlaying = false;
     public bool cutscenePlaying = false;
 
-    [Header("Telemetry")]
-    public bool moodEnd = false;
-    public bool audienceEnd = false;
+    //[Header("Telemetry")]
+    //public bool moodEnd = false;
+    //public bool audienceEnd = false;
 
 
     private void Start()
@@ -220,12 +220,15 @@ public class GameManager : MonoBehaviour
     #region pause menu
     public void PauseGame()
     {
+
+        gamePaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
+        gamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }
