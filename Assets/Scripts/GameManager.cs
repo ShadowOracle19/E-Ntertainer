@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     public CutsceneSequence trueEnding;
     public bool statEndingPlaying = false;
     public bool cutscenePlaying = false;
+    public bool deathCheck = false; //if player is in death dont run a cutscene
 
     //[Header("Telemetry")]
     //public bool moodEnd = false;
@@ -141,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         startingCam = camView.position;
         collectiblesMax = collectibleParent.childCount;
-        print(ColorUtility.ToHtmlStringRGBA(lMoodColor));
+        //print(ColorUtility.ToHtmlStringRGBA(lMoodColor));
         //PlayIntroCutscene(introCutscene);
     }
 
@@ -195,18 +196,35 @@ public class GameManager : MonoBehaviour
 
         //stat ending cutscenes 
         //low mood
-        if(VTuberMood == 0 && !statEndingPlaying)
+        if(VTuberMood == 0 && !statEndingPlaying && !deathCheck)
         {
             statEndingPlaying = true;
             LowMoodEnding(lowMood);
         }
 
         //low audience
-        if(audience == 0 && !statEndingPlaying)
+        if(audience == 0 && !statEndingPlaying && !deathCheck)
         {
             statEndingPlaying = true;
             chatManager.enabled = false;
             LowAudienceEnding(lowAudience);
+        }
+
+        if(!dialogueSystem.dialogueActive && statEndingPlaying)
+        {
+            if (VTuberMood == 0)
+            {
+                statEndingPlaying = true;
+                LowMoodEnding(lowMood);
+            }
+
+            //low audience
+            if (audience == 0)
+            {
+                statEndingPlaying = true;
+                chatManager.enabled = false;
+                LowAudienceEnding(lowAudience);
+            }
         }
 
         if (idleTime <= 0)
@@ -437,12 +455,16 @@ public class GameManager : MonoBehaviour
     #region Death Respawn
     public void Death()
     {
+        deathCheck = true;
         deathAudioSource.Play();
         audienceApproval -= 5f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
         livie2d.SetTrigger("death");
-        TelemetryLogger.Log(this, "Death", player.transform.position);
+        //TelemetryLogger.Log(this, "Death", player.transform.position);
+
+
+
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -457,6 +479,7 @@ public class GameManager : MonoBehaviour
     }
     public void Respawn()
     {
+        deathCheck = false;
         player.transform.position = spawnPoint.position;
         respawnAudioSource.Play();
     }
@@ -596,8 +619,8 @@ public class GameManager : MonoBehaviour
         livie2d.SetTrigger("mood cutscene");
         livie2d.SetBool("inCutscene", true);
         StartCutscene();
-        TelemetryLogger.Log(this, "Mood Ending Achieved");
-        //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        //TelemetryLogger.Log(this, "Mood Ending Achieved");
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -611,8 +634,8 @@ public class GameManager : MonoBehaviour
         livie2d.SetTrigger("audience cutscene");
         livie2d.SetBool("inCutscene", true);
         StartCutscene();
-        TelemetryLogger.Log(this, "Audience Ending Achieved");
-        //dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        //TelemetryLogger.Log(this, "Audience Ending Achieved");
+        dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         if (dialogueSystem.dialogueActive)
         {
             dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);

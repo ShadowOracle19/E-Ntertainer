@@ -49,7 +49,7 @@ public class ChangeBG : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("this is being checked");
+        //Debug.Log("this is being checked");
         if (collision.gameObject.CompareTag("act1BG"))
         {
             BGimage.sprite = act1BG;
