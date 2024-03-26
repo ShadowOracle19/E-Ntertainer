@@ -23,15 +23,15 @@ public class EndLevel : MonoBehaviour
                 collectibles[i] = allCollect.GetChild(i);
             }
 
-            TelemetryLogger.Log(this, "Final Approval", GameManager.Instance.audienceApproval);
-            TelemetryLogger.Log(this, "Final Mood", GameManager.Instance.VTuberMood);
-            TelemetryLogger.Log(this, "Final Audience", GameManager.Instance.audience);
-            TelemetryLogger.Log(this, "Time Spent", Time.time);
-            TelemetryLogger.Log(this, "Collected Collectibles", GameManager.Instance.collectiblesCount);
+            //TelemetryLogger.Log(this, "Final Approval", GameManager.Instance.audienceApproval);
+            //TelemetryLogger.Log(this, "Final Mood", GameManager.Instance.VTuberMood);
+            //TelemetryLogger.Log(this, "Final Audience", GameManager.Instance.audience);
+            //TelemetryLogger.Log(this, "Time Spent", Time.time);
+            //TelemetryLogger.Log(this, "Collected Collectibles", GameManager.Instance.collectiblesCount);
 
             foreach (Transform coin in collectibles)
             {
-                TelemetryLogger.Log(this, "Uncollected Collectible", coin.position);
+                //TelemetryLogger.Log(this, "Uncollected Collectible", coin.position);
             }
             
             collision.gameObject.transform.position = GameManager.Instance.spawnPoint.position;

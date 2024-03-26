@@ -10,16 +10,21 @@ public class OptionsManager : MonoBehaviour
     public int musicSFXLevel = 10;
     [Range(0, 10)]
     public int gameSFXLevel = 10;
+    [Range(0, 10)]
+    public int vtuberSFXLevel = 10;
 
 
     [Header("UI")]
     //Volume
     public TextMeshProUGUI musicLevelText;
     public TextMeshProUGUI gameLevelText;
+    public TextMeshProUGUI vtuberLevelText;
     public GameObject musicLevelRaiseButton;
     public GameObject musicLevelLowerButton;
     public GameObject gameLevelRaiseButton;
     public GameObject gameLevelLowerButton;
+    public GameObject vtuberLevelRaiseButton;
+    public GameObject vtuberLevelLowerButton;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +38,11 @@ public class OptionsManager : MonoBehaviour
         //Volume
         musicSFXLevel = Mathf.Clamp(musicSFXLevel, 0, 10);
         gameSFXLevel = Mathf.Clamp(gameSFXLevel, 0, 10);
+        vtuberSFXLevel = Mathf.Clamp(gameSFXLevel, 0, 10);
 
         musicLevelText.text = musicSFXLevel.ToString();
         gameLevelText.text = gameSFXLevel.ToString();
+        vtuberLevelText.text = vtuberSFXLevel.ToString();
 
         Volume();
 
@@ -75,6 +82,26 @@ public class OptionsManager : MonoBehaviour
         {
             gameLevelRaiseButton.SetActive(true);
         }
+
+        //Vtuber volume
+        if (vtuberSFXLevel > 0)
+        {
+            vtuberLevelLowerButton.SetActive(true);
+        }
+        else if (vtuberSFXLevel <= 0)
+        {
+            vtuberLevelLowerButton.SetActive(false);
+        }
+
+        if (vtuberSFXLevel >= 10)
+        {
+            vtuberLevelRaiseButton.SetActive(false);
+        }
+        else if (vtuberSFXLevel < 10)
+        {
+            vtuberLevelRaiseButton.SetActive(true);
+        }
+
         #endregion
     }
 
@@ -99,6 +126,16 @@ public class OptionsManager : MonoBehaviour
         gameSFXLevel -= 1;
     }
 
+    public void RaiseVtuberVolume()
+    {
+        vtuberSFXLevel += 1;
+    }
+
+    public void LowerVtuberVolume()
+    {
+        vtuberSFXLevel -= 1;
+    }
+
     public void Volume()
     {
         //Game SFX
@@ -112,7 +149,7 @@ public class OptionsManager : MonoBehaviour
         GameManager.Instance.donationAudioSource.volume = (float)gameSFXLevel / 10;
 
         //Voice
-        GameManager.Instance.VTuberSpeakAudioSource.volume = (float)gameSFXLevel / 10;
+        GameManager.Instance.VTuberSpeakAudioSource.volume = (float)vtuberSFXLevel / 10;
 
         //Music
 
