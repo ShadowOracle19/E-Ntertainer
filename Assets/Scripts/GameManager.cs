@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
     {
         startingCam = camView.position;
         collectiblesMax = collectibleParent.childCount;
-        print(ColorUtility.ToHtmlStringRGBA(lMoodColor));
+        //print(ColorUtility.ToHtmlStringRGBA(lMoodColor));
         //PlayIntroCutscene(introCutscene);
     }
 
