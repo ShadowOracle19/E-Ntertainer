@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public float audienceApproval;//-50 to -30 low, -29 to 29 average, 30 to 50 high
     public float audience = 50;//0-100
     public float VTuberMood = 50; //0-100
+    public float endingTime;
     public float timer;
     //These sprites will eventually change
     public Sprite VTuberDefault;
@@ -129,6 +130,9 @@ public class GameManager : MonoBehaviour
     public CutsceneSequence lowMood;
     public CutsceneSequence lowAudience;
     public CutsceneSequence trueEnding;
+    public int tutorialLine = 0;
+    public int ending; //1 = mood, 2 = audience, 3 = true
+    public bool tutorialOn = true;
     public bool statEndingPlaying = false;
     public bool cutscenePlaying = false;
     public bool deathCheck = false; //if player is in death dont run a cutscene
@@ -170,17 +174,26 @@ public class GameManager : MonoBehaviour
         //run this statement
         VTuberEmotionSwitch(VTuberMood);
 
-        //Calculate Audience stat
-        Audience();
+        if (cutscenePlaying==false)
+        {
+            if (statEndingPlaying == false)
+            {
+                //Calculate Audience stat
+                Audience();
 
-        //Calculate Mood Stat
-        Mood();
+                //Calculate Mood Stat
+                Mood();
 
-        //plays out donations
-        Donations();
+                audienceApproval -= Time.deltaTime / 8;
+                idleTime -= Time.deltaTime;
+            }
 
-        audienceApproval -= Time.deltaTime / 8;
-        idleTime -= Time.deltaTime;
+            if (ending != 2) //if the ending is not low audience, it'll play donations
+            {
+                //plays out donations
+                Donations();
+            }
+        }
 
         //rebuild vertical layout to avoid spawning messages incorrectly
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatpopupParent.GetComponent<RectTransform>());
@@ -477,6 +490,7 @@ public class GameManager : MonoBehaviour
             spawnDeathChat();
         }
     }
+
     public void Respawn()
     {
         deathCheck = false;
@@ -593,6 +607,21 @@ public class GameManager : MonoBehaviour
 
 
     #region cutscene
+    public void TutorialLine()
+    {
+        if (dialogueSystem.dialogueActive)
+        {
+            dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
+        }
+        dialogueSystem.vtuberTalking = dialogueSystem.typeOutSpecificDialogue(dialogues.tutorial[tutorialLine]);
+        dialogueSystem.thisCoroutine = dialogueSystem.StartCoroutine(dialogueSystem.vtuberTalking);
+
+        if (tutorialLine >= 2)
+        {
+            tutorialOn = false;
+        }
+    }
+    
     public void StartCutscene()//play this to start cutscene
     {
         //player.GetComponent<PlayerMovement>().enabled = false;
@@ -609,6 +638,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
     {
+        ending = 3;
         StartCutscene();
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         CutsceneManager.Instance.PlayCutscene(cutscene);
@@ -618,6 +648,7 @@ public class GameManager : MonoBehaviour
     {
         livie2d.SetTrigger("mood cutscene");
         livie2d.SetBool("inCutscene", true);
+        ending = 1;
         StartCutscene();
         //TelemetryLogger.Log(this, "Mood Ending Achieved");
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
@@ -633,6 +664,7 @@ public class GameManager : MonoBehaviour
     {
         livie2d.SetTrigger("audience cutscene");
         livie2d.SetBool("inCutscene", true);
+        ending = 2;
         StartCutscene();
         //TelemetryLogger.Log(this, "Audience Ending Achieved");
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);

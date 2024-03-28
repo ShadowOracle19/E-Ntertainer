@@ -26,7 +26,7 @@ public class VtuberDialogueSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!cutscenePlaying)
+        if(!cutscenePlaying && !GameManager.Instance.tutorialOn)
             DialogueSpawner();
 
     }

@@ -15,4 +15,5 @@ public class VtuberDialogues : ScriptableObject
     public List<string> death = new List<string>();
     public List<string> collectible = new List<string>();
     public List<string> checkpoint = new List<string>();
+    public List<string> tutorial = new List<string>();
 }
