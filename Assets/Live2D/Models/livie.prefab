@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5964433175673716896}
   - component: {fileID: 3609335187376817972}
   - component: {fileID: 3112953410769430564}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamAngleX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3858203515757719025}
   - component: {fileID: 6871342310673070278}
   - component: {fileID: 1773503417714032753}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Angry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 7746913640564072037}
   - component: {fileID: 6495546549521188053}
   - component: {fileID: 9062185432461668424}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamMouthForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 3074943019313552173}
   - component: {fileID: 4689262856384331975}
   - component: {fileID: 6124394623609018615}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeLash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4723732033442506066}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Parameters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 63549872834634678}
   - component: {fileID: 1299677421868931083}
   - component: {fileID: 2579137631416483358}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowLX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 5070083892602694856}
   - component: {fileID: 3480532802945047144}
   - component: {fileID: 7363213327470241443}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LBang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 1353663306296914453}
   - component: {fileID: 6112996364729221034}
   - component: {fileID: 1949548274285455613}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EyeBrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 3213803043357650866}
-  - {fileID: 7703934378827689966}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 8510118118475791043}
   - component: {fileID: 2223486471421279944}
   - component: {fileID: 7914245503522302017}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LFrontHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 2040460148308375391}
   - component: {fileID: 1866781817327017871}
   - component: {fileID: 249653187034158462}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 7668455058656180195}
   - component: {fileID: 2984472542096288477}
   - component: {fileID: 4992431468058155549}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamHairBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1014,7 @@ GameObject:
   - component: {fileID: 504341747576259517}
   - component: {fileID: 4223391599651103522}
   - component: {fileID: 8382584794623797865}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 259721322886092894}
   - component: {fileID: 558863483080045383}
   - component: {fileID: 3213803043357650866}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeBrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 6974977953252197513}
   - component: {fileID: 246837113419249116}
   - component: {fileID: 9131968108766016718}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SideHairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,8 +1306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 7095538944750141578}
-  - {fileID: 4681504669404308212}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 8488350065809893056}
   - component: {fileID: 4703619562822231472}
   - component: {fileID: 4661134559816083164}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowRX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 6790307933051869391}
   - component: {fileID: 6318973572308450660}
   - component: {fileID: 3182952673012318077}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,7 +1523,7 @@ GameObject:
   - component: {fileID: 6705050133993799102}
   - component: {fileID: 5163423411582678884}
   - component: {fileID: 6167193100723752242}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: OpenMouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,7 +1645,7 @@ GameObject:
   - component: {fileID: 8477605191014596414}
   - component: {fileID: 6110885836865344816}
   - component: {fileID: 8123408040593122036}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeBOTTOMCOVER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 708119075832750690}
   - component: {fileID: 2429929366422702682}
   - component: {fileID: 9140546194375467166}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 7891487068534357979}
   - component: {fileID: 7868412065665487717}
   - component: {fileID: 335195590816192309}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeRSmile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 6398547081119639639}
   - component: {fileID: 8426208877594575362}
   - component: {fileID: 3536617414945697192}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1937,9 +1937,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 3812357952184332928}
-  - {fileID: 279677173702380680}
-  - {fileID: 6167193100723752242}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 657631831727470563}
   - component: {fileID: 8632172806394741574}
   - component: {fileID: 3376857781612338581}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 1874586175093238510}
   - component: {fileID: 3839878932834385903}
   - component: {fileID: 8678388150954544370}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HairClips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2081,8 +2081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 5600641657926671983}
-  - {fileID: 927566257238232465}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -2114,7 +2114,7 @@ GameObject:
   - component: {fileID: 5020850818841273741}
   - component: {fileID: 1568712482394131864}
   - component: {fileID: 6052358274271748919}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: stressed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 2910203093845079380}
   - component: {fileID: 2462574995158859679}
   - component: {fileID: 1986700914242564487}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeBottomCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2317,7 +2317,7 @@ GameObject:
   - component: {fileID: 7817168076009221168}
   - component: {fileID: 4575278381919571576}
   - component: {fileID: 279677173702380680}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BottomLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2439,7 +2439,7 @@ GameObject:
   - component: {fileID: 424131056657123180}
   - component: {fileID: 7379222136850388557}
   - component: {fileID: 6511266948563468234}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeLid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2560,7 @@ GameObject:
   - component: {fileID: 8301466418158093978}
   - component: {fileID: 6884204872626199096}
   - component: {fileID: 6906922924143041977}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HairFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2609,11 +2609,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 7363213327470241443}
-  - {fileID: 8899805385617863382}
-  - {fileID: 7914245503522302017}
-  - {fileID: 1211553154813986546}
-  - {fileID: 27092146925751451}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -2646,7 +2646,7 @@ GameObject:
   - component: {fileID: 8162244691088984362}
   - component: {fileID: 4087213427898718424}
   - component: {fileID: 7703934378827689966}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeBrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2766,7 +2766,7 @@ GameObject:
   - component: {fileID: 5067757859437250866}
   - component: {fileID: 1380733384730442337}
   - component: {fileID: 5334028234544348160}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2829,7 +2829,7 @@ GameObject:
   - component: {fileID: 2106059205038533886}
   - component: {fileID: 3138190293468410338}
   - component: {fileID: 2555830257560030750}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeTOPCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 6938916571943697695}
   - component: {fileID: 4616535844637135657}
   - component: {fileID: 1684030559350118830}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3072,7 +3072,7 @@ GameObject:
   - component: {fileID: 9163411821498977377}
   - component: {fileID: 5008507579437856257}
   - component: {fileID: 6874952212973162452}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Toggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3121,9 +3121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 7556273576464392130}
-  - {fileID: 6857910755450188628}
-  - {fileID: 1773503417714032753}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts:
   - {fileID: 0}
   _isOverwrittenPartMultiplyColors: 0
@@ -3157,7 +3157,7 @@ GameObject:
   - component: {fileID: 9144884406648933322}
   - component: {fileID: 7833384331425676450}
   - component: {fileID: 7556273576464392130}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Shock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3279,7 +3279,7 @@ GameObject:
   - component: {fileID: 8529544359894785431}
   - component: {fileID: 6165203085977402056}
   - component: {fileID: 5600641657926671983}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LHairClips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3401,7 +3401,7 @@ GameObject:
   - component: {fileID: 4744055090064055627}
   - component: {fileID: 8035625151455183254}
   - component: {fileID: 6857910755450188628}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3521,7 +3521,7 @@ GameObject:
   - component: {fileID: 2608887316237249977}
   - component: {fileID: 5043086381532271302}
   - component: {fileID: 4029384679808391525}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3584,7 +3584,7 @@ GameObject:
   - component: {fileID: 1953862163103168012}
   - component: {fileID: 8959257196479697346}
   - component: {fileID: 4681504669404308212}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LSideHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3704,7 +3704,7 @@ GameObject:
   - component: {fileID: 6761338031884264967}
   - component: {fileID: 419231146816998679}
   - component: {fileID: 3829882547887758751}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBodyAngleZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3765,7 +3765,7 @@ GameObject:
   - component: {fileID: 159801504775971555}
   - component: {fileID: 6011334217540425791}
   - component: {fileID: 3024584098402499920}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBreath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3826,7 +3826,7 @@ GameObject:
   - component: {fileID: 2612048606439877387}
   - component: {fileID: 8465698856325180095}
   - component: {fileID: 7509345128163204325}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamHairSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3889,7 +3889,7 @@ GameObject:
   - component: {fileID: 9151398012287774977}
   - component: {fileID: 2703909906713877598}
   - component: {fileID: 849534161024579152}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeShine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4010,7 +4010,7 @@ GameObject:
   - component: {fileID: 431214771554017377}
   - component: {fileID: 6306122911047135212}
   - component: {fileID: 871192705456374573}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4059,14 +4059,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 6511266948563468234}
-  - {fileID: 6124394623609018615}
-  - {fileID: 5648711507919619539}
-  - {fileID: 1832679197081823064}
-  - {fileID: 3182952673012318077}
-  - {fileID: 1507930945693421939}
-  - {fileID: 8123408040593122036}
-  - {fileID: 2879712973239007875}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -4099,7 +4099,7 @@ GameObject:
   - component: {fileID: 3889659603003756955}
   - component: {fileID: 4656660207689066764}
   - component: {fileID: 927566257238232465}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RHairClips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4221,7 +4221,7 @@ GameObject:
   - component: {fileID: 8446099801325862400}
   - component: {fileID: 5697729226743834411}
   - component: {fileID: 8899805385617863382}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RBang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4341,7 +4341,7 @@ GameObject:
   - component: {fileID: 3387666004216032135}
   - component: {fileID: 3588130556608914300}
   - component: {fileID: 3896539813237650822}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeLOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4402,7 +4402,7 @@ GameObject:
   - component: {fileID: 3275688378126152843}
   - component: {fileID: 8818875526882305550}
   - component: {fileID: 4317017095113570870}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowRForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4465,7 +4465,7 @@ GameObject:
   - component: {fileID: 8892946715855237844}
   - component: {fileID: 3051889087588253197}
   - component: {fileID: 3812357952184332928}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TopLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4585,7 +4585,7 @@ GameObject:
   - component: {fileID: 2666602648668090898}
   - component: {fileID: 6334812403037123250}
   - component: {fileID: 1263865551319461252}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBodyAngleX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4644,7 +4644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1805007778515896671}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Parts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4687,7 +4687,7 @@ GameObject:
   - component: {fileID: 6980198614306122083}
   - component: {fileID: 2716655969571452756}
   - component: {fileID: 7973128848623729207}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeBallY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4750,7 +4750,7 @@ GameObject:
   - component: {fileID: 8786125261947074080}
   - component: {fileID: 4098394541024429255}
   - component: {fileID: 7095538944750141578}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RSidehair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,7 +4870,7 @@ GameObject:
   - component: {fileID: 6095149172973395993}
   - component: {fileID: 5179180088294516153}
   - component: {fileID: 7524799005074311535}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowRAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 8581294250879617941}
   - component: {fileID: 1517397197389750149}
   - component: {fileID: 7335547173503312582}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 7430942738668821938}
   - component: {fileID: 5761090238184648108}
   - component: {fileID: 3073776552235386263}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowLAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5053,7 +5053,7 @@ GameObject:
   - component: {fileID: 7391653624932985009}
   - component: {fileID: 3558534589586233758}
   - component: {fileID: 3460357584960901170}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamAngleY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5114,7 +5114,7 @@ GameObject:
   - component: {fileID: 5726914713444078778}
   - component: {fileID: 8693296023623678119}
   - component: {fileID: 4086669744704239827}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeLSmile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5175,7 +5175,7 @@ GameObject:
   - component: {fileID: 4999657766180145760}
   - component: {fileID: 7007090352411863422}
   - component: {fileID: 3744572051846679461}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeROpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5236,7 +5236,7 @@ GameObject:
   - component: {fileID: 5744822239446517661}
   - component: {fileID: 7036414429781765642}
   - component: {fileID: 3567844549120490420}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowRY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5297,7 +5297,7 @@ GameObject:
   - component: {fileID: 3673352174240923330}
   - component: {fileID: 9098407247596825966}
   - component: {fileID: 5634519921906503406}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamEyeBallX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5360,7 +5360,7 @@ GameObject:
   - component: {fileID: 1532900966876642294}
   - component: {fileID: 730529100723469751}
   - component: {fileID: 27092146925751451}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MidHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5482,7 +5482,7 @@ GameObject:
   - component: {fileID: 4131523151058232140}
   - component: {fileID: 910623886465420160}
   - component: {fileID: 1579975379657459790}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BackHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5602,7 +5602,7 @@ GameObject:
   - component: {fileID: 1100615879942775790}
   - component: {fileID: 211602077539185417}
   - component: {fileID: 6336386815952403708}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBodyAngleY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5665,7 +5665,7 @@ GameObject:
   - component: {fileID: 7696749549821410884}
   - component: {fileID: 3238754929981134713}
   - component: {fileID: 1507930945693421939}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeTOPCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5787,7 +5787,7 @@ GameObject:
   - component: {fileID: 324326331648956831}
   - component: {fileID: 2346642028549941438}
   - component: {fileID: 7734159266042846516}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: stressed2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5909,7 +5909,7 @@ GameObject:
   - component: {fileID: 2749167581546422028}
   - component: {fileID: 5056610131086001385}
   - component: {fileID: 1816692937129508044}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6029,7 +6029,7 @@ GameObject:
   - component: {fileID: 2546232986316822772}
   - component: {fileID: 1526471951496014038}
   - component: {fileID: 8001255440115585539}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamCheek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6090,7 +6090,7 @@ GameObject:
   - component: {fileID: 8318585875026553169}
   - component: {fileID: 546882647563536378}
   - component: {fileID: 3042523719361254276}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamMouthOpenY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6153,7 +6153,7 @@ GameObject:
   - component: {fileID: 7370004779079523239}
   - component: {fileID: 6020140915714147801}
   - component: {fileID: 1211553154813986546}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RFrontHair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6273,7 +6273,7 @@ GameObject:
   - component: {fileID: 518657228999897163}
   - component: {fileID: 5425765740496095680}
   - component: {fileID: 4522083500590820615}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamHairFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6336,7 +6336,7 @@ GameObject:
   - component: {fileID: 6539849604691917921}
   - component: {fileID: 6515057459060229374}
   - component: {fileID: 7617434738545244458}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeLash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6458,7 +6458,7 @@ GameObject:
   - component: {fileID: 7684177035839440072}
   - component: {fileID: 8452363743722907129}
   - component: {fileID: 3411663007632208522}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Rstareye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6578,7 +6578,7 @@ GameObject:
   - component: {fileID: 6881647290214818749}
   - component: {fileID: 7976991912205225799}
   - component: {fileID: 927413184593414669}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamAngleZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6639,7 +6639,7 @@ GameObject:
   - component: {fileID: 7471600705063214552}
   - component: {fileID: 5094770153454065429}
   - component: {fileID: 8978545114039916131}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6702,7 +6702,7 @@ GameObject:
   - component: {fileID: 3892738018919837321}
   - component: {fileID: 6062684042300293733}
   - component: {fileID: 5648711507919619539}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeShine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6824,7 +6824,7 @@ GameObject:
   - component: {fileID: 1130495748159481207}
   - component: {fileID: 2621340342416902122}
   - component: {fileID: 2633302139180834467}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6945,7 +6945,7 @@ GameObject:
   - component: {fileID: 6417988299115855949}
   - component: {fileID: 1537330014320392461}
   - component: {fileID: 7884777112185423498}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6994,12 +6994,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 1684030559350118830}
-  - {fileID: 1816692937129508044}
-  - {fileID: 7176326125689040831}
-  - {fileID: 1579975379657459790}
-  - {fileID: 4601239815603138963}
-  - {fileID: 7734159266042846516}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts:
   - {fileID: 0}
   - {fileID: 0}
@@ -7037,7 +7037,7 @@ GameObject:
   - component: {fileID: 4822754622434611528}
   - component: {fileID: 2390855163119972694}
   - component: {fileID: 3423667108213819249}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REyeLid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7159,7 +7159,7 @@ GameObject:
   - component: {fileID: 7430216620123042446}
   - component: {fileID: 4671778792087418939}
   - component: {fileID: 2879712973239007875}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ArtMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7280,7 +7280,7 @@ GameObject:
   - component: {fileID: 3918348614475565213}
   - component: {fileID: 742767313262898303}
   - component: {fileID: 1275820133127560237}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: REye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7329,14 +7329,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _childDrawableRenderers:
-  - {fileID: 3423667108213819249}
-  - {fileID: 2555830257560030750}
-  - {fileID: 849534161024579152}
-  - {fileID: 8382584794623797865}
-  - {fileID: 2633302139180834467}
-  - {fileID: 7617434738545244458}
-  - {fileID: 1986700914242564487}
-  - {fileID: 3411663007632208522}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _childParts: []
   _isOverwrittenPartMultiplyColors: 0
   _isOverwrittenPartScreenColors: 0
@@ -7367,7 +7367,7 @@ GameObject:
   - component: {fileID: 7909028140159262294}
   - component: {fileID: 3090390651663863207}
   - component: {fileID: 7511449644263818392}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowLForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7430,7 +7430,7 @@ GameObject:
   - component: {fileID: 199663570553186132}
   - component: {fileID: 8015564058947228608}
   - component: {fileID: 4601239815603138963}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7548,7 +7548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5477384689680309968}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Drawables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7623,7 +7623,7 @@ GameObject:
   - component: {fileID: 5736042492632213841}
   - component: {fileID: 2261856662191986833}
   - component: {fileID: 1832679197081823064}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LEyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7743,7 +7743,7 @@ GameObject:
   - component: {fileID: 768783849369061603}
   - component: {fileID: 8098772687593022023}
   - component: {fileID: 8701885176287323613}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Param6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7804,7 +7804,7 @@ GameObject:
   - component: {fileID: 6783521901408277387}
   - component: {fileID: 4314202210170376932}
   - component: {fileID: 3693602238493547458}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ParamBrowLY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7867,7 +7867,7 @@ GameObject:
   - component: {fileID: 6577021541898043332}
   - component: {fileID: 5552416581646663263}
   - component: {fileID: 7176326125689040831}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8015,7 +8015,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 900.00006, y: 900.00006, z: 900.00006}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4723732033442506066}
   - {fileID: 1805007778515896671}
@@ -8072,13 +8072,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Opacity: 1
-  _lastOpacity: 1
+  _lastOpacity: 0
   _isOverwrittenModelMultiplyColors: 0
   _isOverwrittenModelScreenColors: 0
   _modelMultiplyColor: {r: 0, g: 0, b: 0, a: 0}
   _modelScreenColor: {r: 0, g: 0, b: 0, a: 0}
   _sortingLayerId: 0
-  _sortingMode: 2
+  _sortingMode: 0
   _sortingOrder: 0
   CameraToFace: {fileID: 0}
   _drawOrderHandler: {fileID: 0}
@@ -8098,7 +8098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967223d908bf07b4f90945995bdca68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maskTexture: {fileID: 11400000, guid: 16bf142754640ab4487bb625c30931fd, type: 2}
+  _maskTexture: {fileID: 0}
 --- !u!114 &2113940972184087633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8161,7 +8161,7 @@ Animator:
   m_GameObject: {fileID: 9188542007990488445}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0e2f4c326b7f35d47a934a08eec0638c, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8184,7 +8184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd9e6647bfff7542acb0200ab74bdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubismFadeMotionList: {fileID: 11400000, guid: 1f1e50d6763cb1a40a4d54d52211ebee, type: 2}
+  CubismFadeMotionList: {fileID: 0}
 --- !u!114 &8332955004200818979
 MonoBehaviour:
   m_ObjectHideFlags: 0
