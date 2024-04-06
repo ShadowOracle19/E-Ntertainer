@@ -20,7 +20,7 @@ public struct Line
 {
     public string characterName;
 
-    public Color textColor;
+    public Sprite background;
 
     [TextArea(2, 5)]
     public string text;

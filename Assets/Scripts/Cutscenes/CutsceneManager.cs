@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class CutsceneManager : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public TextMeshProUGUI speakerName;
     private float textSpeed;
+    public Image background;
     public int index;
 
     public void PlayCutscene(CutsceneSequence sequence)
@@ -49,6 +51,7 @@ public class CutsceneManager : MonoBehaviour
         //type each character 1 by 1 
         foreach (char c in currentSequence.lines[index].text.ToCharArray())
         {
+            background.sprite = currentSequence.lines[index].background;
             speakerName.text = currentSequence.lines[index].characterName;
             textComponent.text += c;
             yield return new WaitForSeconds(0.1f);
