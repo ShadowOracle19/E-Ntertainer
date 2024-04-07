@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     public AudioSource VTuberSpeakAudioSource;
     public AudioSource walkAudioSource;
     public AudioSource donationAudioSource;
+    public AudioSource bgmAudioSource;
 
     [Header("Pause Menu")]
     public GameObject pauseMenu;
@@ -240,6 +241,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (statEndingPlaying)
+        {
+            bgmAudioSource.volume = bgmAudioSource.volume - (Time.deltaTime/20);
+        }
+
         if (idleTime <= 0)
         {
             livie2d.SetInteger("idle choose", Random.Range(1, 4));
@@ -329,17 +335,37 @@ public class GameManager : MonoBehaviour
         {
             //VTuberImage.sprite = VTuberPositive;
             livie2d.SetBool("high mood", true);
+            if (bgmAudioSource.pitch != 1)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch + (Time.deltaTime / 20);
+                if (bgmAudioSource.pitch > 1)
+                {
+                    bgmAudioSource.pitch = 1;
+                }
+            }
         }
         else if (mood >= 31 && mood <= 69)//Average mood
         {
             livie2d.SetBool("high mood", false);
             livie2d.SetBool("low mood", false);
             //VTuberImage.sprite = VTuberDefault;
+            if (bgmAudioSource.pitch != 1)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch + (Time.deltaTime / 20);
+                if (bgmAudioSource.pitch > 1)
+                {
+                    bgmAudioSource.pitch = 1;
+                }
+            }
         }
         else if (mood <= 30)//low mood
         {
             livie2d.SetBool("low mood", true);
             //VTuberImage.sprite = VTuberNegative;
+            if (bgmAudioSource.pitch > 0.8)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch - (Time.deltaTime / 20);
+            }
         }
 
     }
@@ -639,6 +665,7 @@ public class GameManager : MonoBehaviour
     public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
     {
         ending = 3;
+        cutscenePlaying = true;
         StartCutscene();
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         CutsceneManager.Instance.PlayCutscene(cutscene);
