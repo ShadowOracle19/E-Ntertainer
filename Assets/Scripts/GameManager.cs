@@ -213,34 +213,46 @@ public class GameManager : MonoBehaviour
 
         //stat ending cutscenes 
         //low mood
-        if(VTuberMood == 0 && !statEndingPlaying && !deathCheck)
+
+        if(VTuberMood == 0 || audience == 0)
         {
-            statEndingPlaying = true;
-            LowMoodEnding(lowMood);
+            endingTime = endingTime + Time.deltaTime;
+        }
+        else
+        {
+            endingTime = 0;
         }
 
-        //low audience
-        if(audience == 0 && !statEndingPlaying && !deathCheck)
-        {
-            statEndingPlaying = true;
-            chatManager.enabled = false;
-            LowAudienceEnding(lowAudience);
-        }
-
-        if(!dialogueSystem.dialogueActive && statEndingPlaying)
-        {
-            if (VTuberMood == 0)
+        if (endingTime >= 10) { 
+            if(VTuberMood == 0 && !statEndingPlaying && !deathCheck)
             {
                 statEndingPlaying = true;
                 LowMoodEnding(lowMood);
             }
 
             //low audience
-            if (audience == 0)
+            if(audience == 0 && !statEndingPlaying && !deathCheck)
             {
                 statEndingPlaying = true;
                 chatManager.enabled = false;
                 LowAudienceEnding(lowAudience);
+            }
+
+            if(!dialogueSystem.dialogueActive && statEndingPlaying)
+            {
+                if (VTuberMood == 0)
+                {
+                    statEndingPlaying = true;
+                    LowMoodEnding(lowMood);
+                }
+
+                //low audience
+                if (audience == 0)
+                {
+                    statEndingPlaying = true;
+                    chatManager.enabled = false;
+                    LowAudienceEnding(lowAudience);
+                }
             }
         }
 
@@ -286,12 +298,12 @@ public class GameManager : MonoBehaviour
         else
         {
             audienceStatTimer = 4;
-            if (audienceApproval >= 20)//High approval
+            if (audienceApproval >= 15)//High approval
             {
                 Debug.Log("High");
                 audience += 1;
             }
-            else if (audienceApproval <= 19 && audienceApproval >= -16)//Average approval
+            else if (audienceApproval <= 14 && audienceApproval >= -14)//Average approval
             {
                 /*Debug.Log("Average");
                 int rand = Random.Range(1, 5);
