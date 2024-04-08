@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Donations")]
     public DonationMessage generalDonation;
+    public DonationMessage lowDonation;
+    public DonationMessage highDonation;
     public float money;
     public float donationTime = 10f;
     public bool donationOn;
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
     public Image VTuberImage;
     public Transform chatpopupParent;
     public GameObject chatPopupPrefab;
+    public GameObject fakePause;
     public Transform camView;
     public Vector3 startingCam;
     public int position = 50;
@@ -114,6 +117,7 @@ public class GameManager : MonoBehaviour
     public AudioSource VTuberSpeakAudioSource;
     public AudioSource walkAudioSource;
     public AudioSource donationAudioSource;
+    public AudioSource bgmAudioSource;
 
     [Header("Pause Menu")]
     public GameObject pauseMenu;
@@ -209,35 +213,54 @@ public class GameManager : MonoBehaviour
 
         //stat ending cutscenes 
         //low mood
-        if(VTuberMood == 0 && !statEndingPlaying && !deathCheck)
+
+        if(VTuberMood == 0 || audience == 0)
         {
-            statEndingPlaying = true;
-            LowMoodEnding(lowMood);
+            endingTime = endingTime + Time.deltaTime;
+        }
+        else
+        {
+            endingTime = 0;
         }
 
-        //low audience
-        if(audience == 0 && !statEndingPlaying && !deathCheck)
-        {
-            statEndingPlaying = true;
-            chatManager.enabled = false;
-            LowAudienceEnding(lowAudience);
-        }
-
-        if(!dialogueSystem.dialogueActive && statEndingPlaying)
-        {
-            if (VTuberMood == 0)
+        if (endingTime >= 10) { 
+            if(VTuberMood == 0 && !statEndingPlaying && !deathCheck)
             {
                 statEndingPlaying = true;
                 LowMoodEnding(lowMood);
             }
 
             //low audience
-            if (audience == 0)
+            if(audience == 0 && !statEndingPlaying && !deathCheck)
             {
                 statEndingPlaying = true;
                 chatManager.enabled = false;
                 LowAudienceEnding(lowAudience);
             }
+
+            if(!dialogueSystem.dialogueActive && statEndingPlaying)
+            {
+                if (VTuberMood == 0)
+                {
+                    statEndingPlaying = true;
+                    LowMoodEnding(lowMood);
+                }
+
+                //low audience
+                if (audience == 0)
+                {
+                    statEndingPlaying = true;
+                    chatManager.enabled = false;
+                    LowAudienceEnding(lowAudience);
+                }
+            }
+        }
+
+        if (statEndingPlaying)
+        {
+            bgmAudioSource.volume = bgmAudioSource.volume - (Time.deltaTime/20);
+            fakePause.SetActive(true);
+
         }
 
         if (idleTime <= 0)
@@ -275,12 +298,12 @@ public class GameManager : MonoBehaviour
         else
         {
             audienceStatTimer = 4;
-            if (audienceApproval >= 20)//High approval
+            if (audienceApproval >= 15)//High approval
             {
                 Debug.Log("High");
                 audience += 1;
             }
-            else if (audienceApproval <= 29 && audienceApproval >= -29)//Average approval
+            else if (audienceApproval <= 14 && audienceApproval >= -14)//Average approval
             {
                 /*Debug.Log("Average");
                 int rand = Random.Range(1, 5);
@@ -329,17 +352,37 @@ public class GameManager : MonoBehaviour
         {
             //VTuberImage.sprite = VTuberPositive;
             livie2d.SetBool("high mood", true);
+            if (bgmAudioSource.pitch != 1)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch + (Time.deltaTime / 20);
+                if (bgmAudioSource.pitch > 1)
+                {
+                    bgmAudioSource.pitch = 1;
+                }
+            }
         }
         else if (mood >= 31 && mood <= 69)//Average mood
         {
             livie2d.SetBool("high mood", false);
             livie2d.SetBool("low mood", false);
             //VTuberImage.sprite = VTuberDefault;
+            if (bgmAudioSource.pitch != 1)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch + (Time.deltaTime / 20);
+                if (bgmAudioSource.pitch > 1)
+                {
+                    bgmAudioSource.pitch = 1;
+                }
+            }
         }
         else if (mood <= 30)//low mood
         {
             livie2d.SetBool("low mood", true);
             //VTuberImage.sprite = VTuberNegative;
+            if (bgmAudioSource.pitch > 0.8)
+            {
+                bgmAudioSource.pitch = bgmAudioSource.pitch - (Time.deltaTime / 20);
+            }
         }
 
     }
@@ -470,7 +513,7 @@ public class GameManager : MonoBehaviour
     {
         deathCheck = true;
         deathAudioSource.Play();
-        audienceApproval -= 5f;
+        audienceApproval -= 3f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
         livie2d.SetTrigger("death");
@@ -554,7 +597,7 @@ public class GameManager : MonoBehaviour
     public void HighApprovalDonations()
     {
         money = Random.Range(500, 10000) / 100;
-        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)];
+        dMessage = highDonation.messages[Random.Range(0, highDonation.messages.Count)];
         dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
@@ -563,7 +606,7 @@ public class GameManager : MonoBehaviour
     public void LowApprovalDonations()
     {
         money = Random.Range(100, 500) / 100;
-        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)]; //placeholder
+        dMessage = lowDonation.messages[Random.Range(0, lowDonation.messages.Count)]; //placeholder
         dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
@@ -639,6 +682,7 @@ public class GameManager : MonoBehaviour
     public void PlayTrueEndingCutscene(CutsceneSequence cutscene)
     {
         ending = 3;
+        cutscenePlaying = true;
         StartCutscene();
         dialogueSystem.StopCoroutine(dialogueSystem.thisCoroutine);
         CutsceneManager.Instance.PlayCutscene(cutscene);

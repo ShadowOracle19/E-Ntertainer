@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7237257c852765b4da3cd78e5556a662, type: 3}
+  m_Name: DonationMessageHigh
+  m_EditorClassIdentifier: 
+  messages:
+  - Let's go Livie!!! :D
+  - woa ur good!!!
+  - i JUST found your stream by chance, but i'm definitely subscribing! here's a
+    little smth :3
+  - Long-time viewer here, thank you so much for your awesome streams!
+  - U R AWSOME
+  - hype train!! take my money >:D
+  - oops my wallet slipped, thx for picking it up ;)
+  - here are some gacha funds for ur wife, good luck XD
+  - i would go broke for u
+  - waiter! waiter! one livie smile please!
+  - lemme buy u something nice B)
+  - Your streams always make my day, lets go livie!!
+  - 'I WILL BE THE #1 DONATER '
+  - Sending love!! Heartbeats forever!!
+  - First time ever donating to a streamer! You're my fav, so I don't regret it one
+    bit!
+  - Love ya, Livie!
+  - LETS GOOOOOO
+  - cutest streamer known to man -3-
+  - You're always so entertaining to watch, thx for the quality content!
+  - finally saved up enough to give you a dono!! ty for everything livie!!!
+  - new viewer here, nice model+good content=follow
+  - i never knew u had a knack for platformers?? sasuga livie
+  - i tried to donate so much my bank blocked my card LMFAOOOOO
+  - pretty good but i've seen better
