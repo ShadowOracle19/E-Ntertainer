@@ -291,7 +291,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("High");
                 audience += 1;
             }
-            else if (audienceApproval <= 29 && audienceApproval >= -29)//Average approval
+            else if (audienceApproval <= 19 && audienceApproval >= -16)//Average approval
             {
                 /*Debug.Log("Average");
                 int rand = Random.Range(1, 5);
