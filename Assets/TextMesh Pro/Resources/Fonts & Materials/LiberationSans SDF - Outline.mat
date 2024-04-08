@@ -90,7 +90,7 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: -0.39
+    - _UnderlayDilate: -0.12
     - _UnderlayOffsetX: -0.03
     - _UnderlayOffsetY: 0
     - _UnderlaySoftness: 1
@@ -108,5 +108,5 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 8, g: 8, b: 8, a: 1}
+    - _UnderlayColor: {r: 10.680627, g: 10.680627, b: 10.680627, a: 1}
   m_BuildTextureStacks: []

@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Donations")]
     public DonationMessage generalDonation;
+    public DonationMessage lowDonation;
+    public DonationMessage highDonation;
     public float money;
     public float donationTime = 10f;
     public bool donationOn;
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
     public Image VTuberImage;
     public Transform chatpopupParent;
     public GameObject chatPopupPrefab;
+    public GameObject fakePause;
     public Transform camView;
     public Vector3 startingCam;
     public int position = 50;
@@ -244,6 +247,8 @@ public class GameManager : MonoBehaviour
         if (statEndingPlaying)
         {
             bgmAudioSource.volume = bgmAudioSource.volume - (Time.deltaTime/20);
+            fakePause.SetActive(true);
+
         }
 
         if (idleTime <= 0)
@@ -496,7 +501,7 @@ public class GameManager : MonoBehaviour
     {
         deathCheck = true;
         deathAudioSource.Play();
-        audienceApproval -= 5f;
+        audienceApproval -= 3f;
         player.GetComponentInChildren<Animator>().SetTrigger("Death");
         player.GetComponent<Rigidbody2D>().simulated = false;
         livie2d.SetTrigger("death");
@@ -580,7 +585,7 @@ public class GameManager : MonoBehaviour
     public void HighApprovalDonations()
     {
         money = Random.Range(500, 10000) / 100;
-        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)];
+        dMessage = highDonation.messages[Random.Range(0, highDonation.messages.Count)];
         dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
@@ -589,7 +594,7 @@ public class GameManager : MonoBehaviour
     public void LowApprovalDonations()
     {
         money = Random.Range(100, 500) / 100;
-        dMessage = generalDonation.messages[Random.Range(0, generalDonation.messages.Count)]; //placeholder
+        dMessage = lowDonation.messages[Random.Range(0, lowDonation.messages.Count)]; //placeholder
         dUser = usernames.usersFirst[Random.Range(0, usernames.usersFirst.Count)] + usernames.usersSecond[Random.Range(0, usernames.usersSecond.Count)];
         GetComponent<DonationSpawner>().DonationSpawn(dUser, dMessage, money);
     }
